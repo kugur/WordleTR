@@ -1,5 +1,6 @@
 package com.kolip.wordletr;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.Build;
@@ -13,9 +14,8 @@ import java.lang.ref.Reference;
 
 public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 
-    private static final int[] STATE_TITLE = {R.attr.state_title};
     private String boxText = "";
-    private boolean stateTitle;
+    private int deneme = 0;
 
     public BoxView(@NonNull Context context) {
         super(context);
@@ -33,53 +33,55 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
     }
 
     public void setBoxText(String boxText) {
-//        correct = (correct + 1) % 3;
-//        ((LevelListDrawable)findViewById(R.id.row_1_box_1).getBackground()).setLevel(correct);
         this.boxText = boxText;
-        stateTitle = !stateTitle;
         setText(boxText);
+        rotateAnimationClosing();
+        setCorrectPositionStyle();
         invalidate();
-        requestLayout();
+//        requestLayout();
         refreshDrawableState();
+        rotateAnimationOpening();
+    }
+
+    private void rotateAnimationClosing() {
+        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationX", 90f);
+        animation.setDuration(400);
+        animation.start();
+    }
+
+    private void rotateAnimationOpening() {
+        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationX", 90f, 0f);
+        animation.setDuration(400);
+        animation.start();
     }
 
 
-    private void setWrongPosition() {
+    private void setEmptyTextStyle() {
+        setTextColor(getResources().getColor(R.color.black));
+        setBackground(getResources().getDrawable(R.drawable.box_border));
+    }
+
+    private void setTextStyle() {
+        setTextColor(getResources().getColor(R.color.black));
+        setBackground(getResources().getDrawable(R.drawable.dark_box_border));
+    }
+
+    private void setWrongPositionStyle() {
         setTextColor(getResources().getColor(R.color.white));
         setBackground(null);
         setBackgroundColor(getResources().getColor(R.color.yellow));
 
     }
 
-    private void setCorrectPosition() {
-        setTextColor(getResources().getColor(R.color.green));
+    private void setCorrectPositionStyle() {
+        setTextColor(getResources().getColor(R.color.white));
         setBackground(null);
-        setBackgroundColor(getResources().getColor(R.color.white));
+        setBackgroundColor(getResources().getColor(R.color.green));
     }
 
     private void setWrongChar() {
         setTextColor(getResources().getColor(R.color.white));
         setBackgroundColor(getResources().getColor(R.color.grey_background));
         setBackground(null);
-    }
-
-    public void setCorrect(int correct) {
-//        this.correct = correct;
-//        invalidate();
-//        requestLayout();
-//        refreshDrawableState();
-    }
-
-//    @RequiresApi(api = Build.VERSION_CODES.M)
-//    public void setStatus(int status) {
-//        setTextAppearance(R.style.myBoxDefault);
-//    }
-//
-    @Override
-    protected int[] onCreateDrawableState(int extraSpace) {
-        final int[] drawableState = super.onCreateDrawableState(extraSpace + 1);
-        if (stateTitle)
-            mergeDrawableStates(drawableState, STATE_TITLE);
-        return drawableState;
     }
 }
