@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item app:state_title="false">
+    <shape
+        android:shape="rectangle">
+    <stroke
+        android:color="@color/grey_border"
+        android:width="2dp"
+        >
+    </stroke>
+    </shape>
+</item>
+<item >
+    <shape
+        android:shape="rectangle">
+        <stroke
+            android:color="@color/dark_grey_border"
+            android:width="2dp"
+            >
+        </stroke>
+    </shape>
+</item>
+</selector>

@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="BoxView">
+        <attr name="title" format="string"/>
+        <attr name="state_title" format="boolean"/>
+        <attr name="boxButtonStyle" format="reference"/>
+    </declare-styleable>
+</resources>
