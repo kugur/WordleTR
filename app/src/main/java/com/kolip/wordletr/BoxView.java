@@ -1,21 +1,18 @@
 package com.kolip.wordletr;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.drawable.LevelListDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-
-import java.lang.ref.Reference;
 
 public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 
     private String boxText = "";
-    private int deneme = 0;
+    private BoxStatus status = BoxStatus.EMPTY_TEXT;
 
     public BoxView(@NonNull Context context) {
         super(context);
@@ -29,30 +26,61 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 
     public BoxView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, R.attr.boxButtonStyle);
-        setText("U");
     }
 
     public void setBoxText(String boxText) {
         this.boxText = boxText;
-        setText(boxText);
+        setText("B");
         rotateAnimationClosing();
-        setCorrectPositionStyle();
         invalidate();
-//        requestLayout();
         refreshDrawableState();
-        rotateAnimationOpening();
+
+    }
+
+    private void setStyle() {
+        switch (status) {
+            case EMPTY_TEXT:
+                setEmptyTextStyle();
+                break;
+            case FILLED_TEXT:
+                setFilledTextStyle();
+                break;
+            case WRONG_POSITION:
+                setWrongPositionStyle();
+                break;
+            case CORRECT_POSITION:
+                setCorrectPositionStyle();
+                break;
+            default:
+                setWrongChar();
+        }
     }
 
     private void rotateAnimationClosing() {
-        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationX", 90f);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationY", 0f, 90f);
         animation.setDuration(400);
         animation.start();
+        animation.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                setStyle();
+                rotateAnimationOpening();
+            }
+        });
     }
 
     private void rotateAnimationOpening() {
-        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationX", 90f, 0f);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationY", 90f, 0f);
         animation.setDuration(400);
         animation.start();
+        animation.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                setRotationY(0f);
+            }
+        });
     }
 
 
@@ -61,7 +89,7 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
         setBackground(getResources().getDrawable(R.drawable.box_border));
     }
 
-    private void setTextStyle() {
+    private void setFilledTextStyle() {
         setTextColor(getResources().getColor(R.color.black));
         setBackground(getResources().getDrawable(R.drawable.dark_box_border));
     }
