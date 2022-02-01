@@ -6,25 +6,248 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <com.kolip.wordletr.BoxView
-        android:id="@+id/row_1_box_1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    </com.kolip.wordletr.BoxView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_1_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_1_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_1_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_1_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_1_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_2_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_2_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_2_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_2_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_2_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_3_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_3_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_3_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_3_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_3_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_4_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_4_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_4_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_4_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_4_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_5_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_5_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_5_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_5_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_5_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_6_box_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_6_box_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_6_box_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_6_box_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+            <com.kolip.wordletr.BoxView
+                android:id="@+id/row_6_box_5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp" />
+
+        </LinearLayout>
+
+        <com.kolip.wordletr.keyboard.CustomKeyboard
+            android:id="@+id/custom_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
+
+<!--        <include layout="@layout/custom_keyboard" android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            />-->
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

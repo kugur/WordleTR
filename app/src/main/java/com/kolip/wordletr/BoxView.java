@@ -30,11 +30,16 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 
     public void setBoxText(String boxText) {
         this.boxText = boxText;
-        setText("B");
-        rotateAnimationClosing();
+        status = boxText.equals("") ? BoxStatus.EMPTY_TEXT : BoxStatus.FILLED_TEXT;
+        setText(boxText);
+        setStyle();
         invalidate();
         refreshDrawableState();
+    }
 
+    public void setStatus(BoxStatus status) {
+        this.status = status;
+        rotateAnimationAndSetStyle();
     }
 
     private void setStyle() {
@@ -56,7 +61,7 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
         }
     }
 
-    private void rotateAnimationClosing() {
+    private void rotateAnimationAndSetStyle() {
         ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationY", 0f, 90f);
         animation.setDuration(400);
         animation.start();
@@ -78,11 +83,9 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                setRotationY(0f);
             }
         });
     }
-
 
     private void setEmptyTextStyle() {
         setTextColor(getResources().getColor(R.color.black));
@@ -109,7 +112,7 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 
     private void setWrongChar() {
         setTextColor(getResources().getColor(R.color.white));
-        setBackgroundColor(getResources().getColor(R.color.grey_background));
         setBackground(null);
+        setBackgroundColor(getResources().getColor(R.color.grey_background));
     }
 }

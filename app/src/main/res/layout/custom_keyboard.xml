@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_keyboard">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.kolip.wordletr.keyboard.Key
+            android:id="@+id/key_B"
+            android:layout_width="43dp"
+            android:layout_height="58dp"
+            android:text="B"/>
+        <com.kolip.wordletr.keyboard.Key
+            android:id="@+id/key_C"
+            android:layout_width="43dp"
+            android:layout_height="58dp"
+            android:text="C"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_E"
+                android:layout_width="43dp"
+                android:layout_height="58dp"
+                android:text="E"/>
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_F"
+                android:layout_width="43dp"
+                android:layout_height="58dp"
+                android:text="F"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</merge>
