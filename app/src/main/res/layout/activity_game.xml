@@ -236,18 +236,12 @@
 
         </LinearLayout>
 
-        <com.kolip.wordletr.keyboard.CustomKeyboard
-            android:id="@+id/custom_keyboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
-
-<!--        <include layout="@layout/custom_keyboard" android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            />-->
-
     </LinearLayout>
 
-
+    <com.kolip.wordletr.keyboard.CustomKeyboard
+        android:id="@+id/custom_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

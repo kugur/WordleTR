@@ -1,43 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/custom_keyboard">
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <com.kolip.wordletr.keyboard.Key
-            android:id="@+id/key_B"
-            android:layout_width="43dp"
-            android:layout_height="58dp"
-            android:text="B"/>
-        <com.kolip.wordletr.keyboard.Key
-            android:id="@+id/key_C"
-            android:layout_width="43dp"
-            android:layout_height="58dp"
-            android:text="C"/>
-    </LinearLayout>
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <com.kolip.wordletr.keyboard.Key
                 android:id="@+id/key_E"
-                android:layout_width="43dp"
-                android:layout_height="58dp"
-                android:text="E"/>
+                style="@style/myKeyboardKeyStyle"
+                android:text="E" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_R"
+                style="@style/myKeyboardKeyStyle"
+                android:text="R" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_T"
+                style="@style/myKeyboardKeyStyle"
+                android:text="T" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_Y"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Y" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_U"
+                style="@style/myKeyboardKeyStyle"
+                android:text="U" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_I"
+                style="@style/myKeyboardKeyStyle"
+                android:text="I" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_O"
+                style="@style/myKeyboardKeyStyle"
+                android:text="O" />
+
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_P"
+                style="@style/myKeyboardKeyStyle"
+                android:text="P" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_SoftG"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Ğ" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_UU"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Ü" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/custom_keyboard_row1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_A"
+                style="@style/myKeyboardKeyStyle"
+                android:text="A" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_S"
+                style="@style/myKeyboardKeyStyle"
+                android:text="S" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_D"
+                style="@style/myKeyboardKeyStyle"
+                android:text="D" />
+
             <com.kolip.wordletr.keyboard.Key
                 android:id="@+id/key_F"
-                android:layout_width="43dp"
-                android:layout_height="58dp"
-                android:text="F"/>
+                style="@style/myKeyboardKeyStyle"
+                android:text="F" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_G"
+                style="@style/myKeyboardKeyStyle"
+                android:text="G" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_H"
+                style="@style/myKeyboardKeyStyle"
+                android:text="H" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_J"
+                style="@style/myKeyboardKeyStyle"
+                android:text="J" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_K"
+                style="@style/myKeyboardKeyStyle"
+                android:text="K" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_L"
+                style="@style/myKeyboardKeyStyle"
+                android:text="L" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_SS"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Ş" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_i"
+                style="@style/myKeyboardKeyStyle"
+                android:text="İ" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/custom_keyboard_row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_Enter"
+                style="@style/myKeyboardKeyStyle"
+                android:layout_width="50dp"
+                android:text="ENTER"
+                android:textSize="8dp" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_Z"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Z" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_C"
+                style="@style/myKeyboardKeyStyle"
+                android:text="C" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_V"
+                style="@style/myKeyboardKeyStyle"
+                android:text="V" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_B"
+                style="@style/myKeyboardKeyStyle"
+                android:text="B" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_N"
+                style="@style/myKeyboardKeyStyle"
+                android:text="N" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_M"
+                style="@style/myKeyboardKeyStyle"
+                android:text="M" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_oo"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Ö" />
+
+            <com.kolip.wordletr.keyboard.Key
+                android:id="@+id/key_cc"
+                style="@style/myKeyboardKeyStyle"
+                android:text="Ç" />
+
+            <ImageButton
+                android:id="@+id/key_enter"
+                style="@style/myKeyboardKeyStyle"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_baseline_backspace_24"
+                android:text=""/>
+
         </LinearLayout>
 
     </LinearLayout>

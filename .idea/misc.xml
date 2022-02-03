@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.20520833333333333" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_border.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_drawable_style.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
@@ -10,6 +11,8 @@
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_main.xml" value="0.38722826086956524" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/custom_keyboard.xml" value="0.4036458333333333" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/sample_box.xml" value="0.3307291666666667" />
+        <entry key="app/src/main/res/layout/activity_game.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/custom_keyboard.xml" value="0.2375" />
       </map>
     </option>
   </component>

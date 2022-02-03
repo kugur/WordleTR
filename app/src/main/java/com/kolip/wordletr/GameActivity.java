@@ -35,7 +35,14 @@ public class GameActivity extends AppCompatActivity {
 
     private void handleButtonClick(Key keyView) {
         Log.d("GameActivity", "Click event received by gameActivity " + keyView.getText());
+        ((BoxView)findViewById(R.id.row_1_box_1)).setBoxText(keyView.getText() + "");
+        customKeyboard.setKeyStatus("U", BoxStatus.WRONG_POSITION);
+        customKeyboard.setKeyStatus("Y", BoxStatus.WRONG_CHAR);
+        customKeyboard.setKeyStatus("Ç", BoxStatus.WRONG_CHAR);
+        customKeyboard.setKeyStatus("Ü", BoxStatus.CORRECT_POSITION);
+        customKeyboard.setKeyStatus("İ", BoxStatus.WRONG_CHAR);
+        customKeyboard.setKeyStatus("Ş", BoxStatus.WRONG_CHAR);
+        customKeyboard.setKeyStatus("Ö", BoxStatus.CORRECT_POSITION);
+        customKeyboard.setKeyStatus("Ğ", BoxStatus.WRONG_CHAR);
     }
-
-
 }
