@@ -37,7 +37,13 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
         refreshDrawableState();
     }
 
+    public String getText() {
+        return String.valueOf(super.getText());
+    }
+
     public void setStatus(BoxStatus status) {
+        if (this.status == BoxStatus.CORRECT_POSITION) return;
+
         this.status = status;
         rotateAnimationAndSetStyle();
     }
@@ -79,12 +85,12 @@ public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
         ObjectAnimator animation = ObjectAnimator.ofFloat(this, "rotationY", 90f, 0f);
         animation.setDuration(400);
         animation.start();
-        animation.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-            }
-        });
+//        animation.addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                super.onAnimationEnd(animation);
+//            }
+//        });
     }
 
     private void setEmptyTextStyle() {

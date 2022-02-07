@@ -19,6 +19,8 @@ import com.kolip.wordletr.BoxStatus;
 import com.kolip.wordletr.R;
 
 public class Key extends AppCompatButton {
+    private BoxStatus status;
+
     public Key(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
@@ -28,7 +30,9 @@ public class Key extends AppCompatButton {
     }
 
     public void setStatus(BoxStatus status) {
+        if (this.status == BoxStatus.CORRECT_POSITION) return;
 
+        this.status = status;
         switch (status) {
             case WRONG_POSITION:
                 setWrongPositionStyle();

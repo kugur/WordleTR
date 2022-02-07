@@ -68,16 +68,22 @@ public class CustomKeyboard extends LinearLayout {
         keyMap.put("M", (Key) findViewById(R.id.key_M));
         keyMap.put("Ö", (Key) findViewById(R.id.key_oo));
         keyMap.put("Ç", (Key) findViewById(R.id.key_cc));
+        keyMap.put("ENTER", (Key) findViewById(R.id.key_Enter));
 
         keyMap.forEach((key, keyView) -> {
             Log.d("Custom keyboard", "Button event has been received.");
             keyView.setOnClickListener(v -> handleKeyClick.accept(keyView));
         });
+
     }
 
     public void setListener(Consumer<Key> handleKeyClick) {
        this.handleKeyClick = handleKeyClick;
         attectButtonListeners();
+    }
+
+    public void setDeleteListener(Consumer<View> handleDeleteClick) {
+        findViewById(R.id.key_delete).setOnClickListener(handleDeleteClick::accept);
     }
 
     public void setKeyStatus(String keyValue, BoxStatus status) {

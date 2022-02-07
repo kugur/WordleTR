@@ -13,6 +13,7 @@
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/sample_box.xml" value="0.3307291666666667" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.2375" />
         <entry key="app/src/main/res/layout/custom_keyboard.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/game_finished_dialog.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>

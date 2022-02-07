@@ -185,11 +185,11 @@
                 android:text="Ç" />
 
             <ImageButton
-                android:id="@+id/key_enter"
+                android:id="@+id/key_delete"
                 style="@style/myKeyboardKeyStyle"
                 android:layout_width="wrap_content"
                 android:src="@drawable/ic_baseline_backspace_24"
-                android:text=""/>
+                android:text="DELETE"/>
 
         </LinearLayout>
 
