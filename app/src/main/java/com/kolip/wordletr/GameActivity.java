@@ -5,14 +5,17 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
+import com.kolip.wordletr.dialog.GameFinishedDialog;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.keyboard.Key;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends FragmentActivity {
 
     private CustomKeyboard customKeyboard;
     private GameManager gameManager;
+    private GameFinishedDialog finishedDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +63,17 @@ public class GameActivity extends AppCompatActivity {
                         findViewById(R.id.row_6_box_5)}
         };
         gameManager = new GameManager(customKeyboard, boxes);
+        finishedDialog = new GameFinishedDialog();
+        finishedDialog.setGameFinishedDialogListener(v -> {
+            Log.d("GameActivity", "Finish button has been clicked.");
+        });
     }
 
     private void handleButtonClick(Key keyView) {
         Log.d("GameActivity", "Click event received by gameActivity " + keyView.getText());
+        if (keyView.getText().equals("U")) {
+            finishedDialog.show(getSupportFragmentManager(), "ugur");
+        }
         if (keyView.getText().equals("ENTER")) {
             gameManager.enter();
         } else {
