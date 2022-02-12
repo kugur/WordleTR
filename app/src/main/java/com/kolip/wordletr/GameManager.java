@@ -1,9 +1,9 @@
 package com.kolip.wordletr;
 
 import com.kolip.wordletr.keyboard.CustomKeyboard;
-import com.kolip.wordletr.keyboard.Key;
 
 import java.util.Stack;
+import java.util.function.Consumer;
 
 public class GameManager {
 
@@ -16,17 +16,21 @@ public class GameManager {
     private final BoxView[][] boxes;
     private final CustomKeyboard customKeyboard;
     private final int rowCount, columnCount;
+    private Consumer<Boolean> onFinished;
 
 
-    public GameManager(CustomKeyboard customKeyboard, BoxView[][] boxes) {
+    public GameManager(CustomKeyboard customKeyboard, BoxView[][] boxes,
+                       Consumer<Boolean> onFinished) {
         this.boxes = boxes;
         rowCount = boxes.length;
         columnCount = boxes[0].length;
         this.customKeyboard = customKeyboard;
+        this.onFinished = onFinished;
     }
 
     /**
      * Write text the column by column and row and after column increase 1.
+     *
      * @param text that will be written in the box with row and column.
      */
     public void write(String text) {
@@ -52,18 +56,23 @@ public class GameManager {
         if (column != columnCount) return;
 
         guestCorrectly = validateAndSetColors();
-        if (guestCorrectly || row == rowCount) {
+        if (guestCorrectly || row == 2) {//rowCount) {
             finishedGame();
             return;
         }
 
         row++;
         column = 0;
-        while(!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+        while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+    }
+
+    public void setOnFinished(Consumer onFinished) {
+        this.onFinished = onFinished;
     }
 
     /**
      * Validate the entered word with the correct word and set the box colors and keyboard colors.
+     *
      * @return if The world is correct return true, else return false.
      */
     private boolean validateAndSetColors() {
@@ -71,7 +80,7 @@ public class GameManager {
         boolean wordMatched = true;
         String charAtIndexOfCorrectWord;
 
-        for(String enteredChar : enteredWord) {
+        for (String enteredChar : enteredWord) {
             charAtIndexOfCorrectWord = String.valueOf(correctWord.charAt(enteredWordIndex));
 
             if (enteredChar.equals(charAtIndexOfCorrectWord)) {
@@ -98,6 +107,7 @@ public class GameManager {
      * If the world is guest correctly or there is not any box, it will finish the game.
      */
     private void finishedGame() {
-        //TODO(Ugur)
+        if (onFinished != null) onFinished.accept(guestCorrectly);
     }
+
 }

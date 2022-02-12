@@ -2,20 +2,20 @@ package com.kolip.wordletr;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import com.kolip.wordletr.dialog.GameFinishedDialog;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.keyboard.Key;
+import com.kolip.wordletr.store.StatisticUtil;
 
 public class GameActivity extends FragmentActivity {
 
     private CustomKeyboard customKeyboard;
     private GameManager gameManager;
     private GameFinishedDialog finishedDialog;
+    private StatisticUtil statisticUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +62,15 @@ public class GameActivity extends FragmentActivity {
                         findViewById(R.id.row_6_box_4),
                         findViewById(R.id.row_6_box_5)}
         };
-        gameManager = new GameManager(customKeyboard, boxes);
+        gameManager = new GameManager(customKeyboard, boxes, this::onFinished);
         finishedDialog = new GameFinishedDialog();
-        finishedDialog.setGameFinishedDialogListener(v -> {
-            Log.d("GameActivity", "Finish button has been clicked.");
-        });
+        statisticUtil = new StatisticUtil(this);
+        finishedDialog.setStatistic(statisticUtil.getStatics());
     }
 
     private void handleButtonClick(Key keyView) {
         Log.d("GameActivity", "Click event received by gameActivity " + keyView.getText());
-        if (keyView.getText().equals("U")) {
-            finishedDialog.show(getSupportFragmentManager(), "ugur");
-        }
+
         if (keyView.getText().equals("ENTER")) {
             gameManager.enter();
         } else {
@@ -83,5 +80,21 @@ public class GameActivity extends FragmentActivity {
 
     private void handleDeleteClick() {
         gameManager.delete();
+    }
+
+    private void onFinished(boolean guessSuccessfully) {
+        statisticUtil.saveStatistic(guessSuccessfully);
+        finishedDialog.setStatistic(statisticUtil.getStatics());
+
+        finishedDialog.setGameFinishedDialogListener(v -> {
+            Log.d("GameActivity", "Finish button has been clicked.");
+        });
+
+        finishedDialog.show(getSupportFragmentManager(), "ugur");
+    }
+
+    private void showDialog() {
+        //TODO(Ugur) Uzerindeki dugmeleri filan silmek gerekiyor !!!!
+        finishedDialog.show(getSupportFragmentManager(), "ugur");
     }
 }
