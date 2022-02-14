@@ -62,7 +62,9 @@ public class GameActivity extends FragmentActivity {
                         findViewById(R.id.row_6_box_4),
                         findViewById(R.id.row_6_box_5)}
         };
-        gameManager = new GameManager(customKeyboard, boxes, this::onFinished);
+        statisticUtil = new StatisticUtil(this);
+        gameManager = new GameManager(this, customKeyboard, boxes, this::onFinished,
+                statisticUtil);
         finishedDialog = new GameFinishedDialog();
         statisticUtil = new StatisticUtil(this);
         finishedDialog.setStatistic(statisticUtil.getStatics());

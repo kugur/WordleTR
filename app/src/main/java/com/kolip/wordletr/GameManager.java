@@ -1,6 +1,10 @@
 package com.kolip.wordletr;
 
+import android.app.Activity;
+
 import com.kolip.wordletr.keyboard.CustomKeyboard;
+import com.kolip.wordletr.store.StatisticUtil;
+import com.kolip.wordletr.trdict.DictionaryHelper;
 
 import java.util.Stack;
 import java.util.function.Consumer;
@@ -10,22 +14,28 @@ public class GameManager {
     private int row = 0; // Row that show active row number.
     private int column = 0; // Show that active column number.
     private final Stack<String> enteredWord = new Stack<>(); // Store entered word.
-    private String correctWord = "SAMET";
+    private String correctWord;
     private boolean guestCorrectly;
 
     private final BoxView[][] boxes;
     private final CustomKeyboard customKeyboard;
     private final int rowCount, columnCount;
     private Consumer<Boolean> onFinished;
+    private DictionaryHelper dictionaryHelper;
+    private StatisticUtil statisticUtil;
 
-
-    public GameManager(CustomKeyboard customKeyboard, BoxView[][] boxes,
-                       Consumer<Boolean> onFinished) {
+    public GameManager(Activity activity, CustomKeyboard customKeyboard, BoxView[][] boxes,
+                       Consumer<Boolean> onFinished, StatisticUtil statisticUtil) {
         this.boxes = boxes;
         rowCount = boxes.length;
         columnCount = boxes[0].length;
         this.customKeyboard = customKeyboard;
         this.onFinished = onFinished;
+        this.statisticUtil = statisticUtil;
+        dictionaryHelper = new DictionaryHelper(activity);
+
+        correctWord = dictionaryHelper.getCurrentWord(columnCount,
+                statisticUtil.getTotalGame());
     }
 
     /**
@@ -56,7 +66,7 @@ public class GameManager {
         if (column != columnCount) return;
 
         guestCorrectly = validateAndSetColors();
-        if (guestCorrectly || row == 2) {//rowCount) {
+        if (guestCorrectly || row == rowCount - 1) {
             finishedGame();
             return;
         }
@@ -64,10 +74,6 @@ public class GameManager {
         row++;
         column = 0;
         while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
-    }
-
-    public void setOnFinished(Consumer onFinished) {
-        this.onFinished = onFinished;
     }
 
     /**

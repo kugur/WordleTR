@@ -32,21 +32,27 @@ public class StatisticUtil {
     public void saveStatistic(boolean guessCorrectly) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(TOTAL_GAME, totalGame++);
         if (guessCorrectly) {
-            editor.putInt(TOTAL_GUESS_CORRECTLY, totalGuessCorrectly++);
-            editor.putInt(STRIKE_COUNT, strikeCount++);
-            editor.putInt(MAX_STRIKE_COUNT, maxStrikeCount = Math.max(strikeCount, maxStrikeCount));
-
+            strikeCount++;
+            totalGuessCorrectly++;
+            maxStrikeCount = Math.max(strikeCount, maxStrikeCount);
         } else {
-            editor.putInt(STRIKE_COUNT, 0);
+            strikeCount = 0;
         }
-        editor.commit();
+        editor.putInt(TOTAL_GAME, ++totalGame);
+        editor.putInt(TOTAL_GUESS_CORRECTLY, totalGuessCorrectly);
+        editor.putInt(STRIKE_COUNT, strikeCount);
+        editor.putInt(MAX_STRIKE_COUNT, maxStrikeCount);
+        editor.apply();
     }
 
     public Statitics getStatics() {
         return new Statitics(totalGame,
                 totalGuessCorrectly > 0 ? (int) (totalGame * 100 / totalGuessCorrectly) : 0,
                 strikeCount, maxStrikeCount);
+    }
+
+    public int getTotalGame() {
+        return totalGame;
     }
 }
