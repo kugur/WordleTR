@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Wordle TR</string>
     <string name="statistic">İSTATİSTİKLER</string>
+    <string name="helper_description1">Her tahmin kutu sayısı kadar olmalıdır. Göndermek için enter\'a basın.</string>
+    <string name="helper_description2">Her tahminden sonra kutucukların renkleri tahmininizin yakınlığına göre değişecektir.</string>
+    <string name="helper_description3"><b>Örnekler</b></string>
+    <string name="helper_description4"><b>İ</b> harfi kelimede var ve doğru yerde.</string>
+    <string name="helper_description5"><b>S</b> harfi kelimede var fakat yanlış yerde.</string>
+    <string name="helper_description6"><b>R</b> harfi kelimede yok.</string>
 </resources>

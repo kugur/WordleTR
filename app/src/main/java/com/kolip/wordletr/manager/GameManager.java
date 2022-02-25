@@ -1,7 +1,9 @@
-package com.kolip.wordletr;
+package com.kolip.wordletr.manager;
 
 import android.app.Activity;
 
+import com.kolip.wordletr.BoxStatus;
+import com.kolip.wordletr.BoxView;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.store.StatisticUtil;
 import com.kolip.wordletr.trdict.DictionaryHelper;

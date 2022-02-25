@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.store.Statitics;
@@ -29,7 +28,7 @@ public class GameFinishedDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater layoutInflater = requireActivity().getLayoutInflater();
-        customDialog = layoutInflater.inflate(R.layout.game_finished_dialog, null);
+        customDialog = layoutInflater.inflate(R.layout.dialog_game_finished, null);
         builder.setView(customDialog);
         customDialog.findViewById(R.id.game_finished_button).setOnClickListener(v -> {
             Log.d("GameFinishedDialog", "Finish button has been clicked.");

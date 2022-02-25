@@ -11,8 +11,19 @@
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_main.xml" value="0.38722826086956524" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/custom_keyboard.xml" value="0.4036458333333333" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/sample_box.xml" value="0.3307291666666667" />
+        <entry key="app/src/main/res/drawable/box_border.xml" value="0.3074074074074074" />
+        <entry key="app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.4185185185185185" />
+        <entry key="app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2895" />
+        <entry key="app/src/main/res/drawable/main_menu_background.xml" value="0.2078125" />
+        <entry key="app/src/main/res/drawable/statistic.xml" value="0.165" />
+        <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_six_letter_game.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/custom_keyboard.xml" value="0.2375" />
+        <entry key="app/src/main/res/layout/dialog_game_finished.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_helper.xml" value="0.5" />
         <entry key="app/src/main/res/layout/game_finished_dialog.xml" value="0.375" />
       </map>
     </option>
