@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A7DADC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/statistic"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <include
+            android:id="@+id/five_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+        <include
+            android:id="@+id/six_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+        <include
+            android:id="@+id/seven_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+        <include
+            android:id="@+id/four_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+        <include
+            android:id="@+id/eight_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+        <include
+            android:id="@+id/nine_letter_section"
+            layout="@layout/dialog_statistic_section" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kolip.wordletr.dialog.AllStatisticDialog;
 import com.kolip.wordletr.dialog.HelpDialog;
 import com.kolip.wordletr.games.FiveLetterGameActivity;
 import com.kolip.wordletr.store.Achievements;
@@ -16,7 +17,9 @@ import com.kolip.wordletr.store.StatisticUtil;
 public class MainMenu extends AppCompatActivity {
     private Achievements achievements;
     AlertDialog.Builder builder;
+
     private HelpDialog helpDialog;
+    private StatisticUtil statisticUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViewById(R.id.main_menu).setBackgroundDrawable(getResources().getDrawable(R.drawable.main_menu_background));
 
-        StatisticUtil statisticUtil = new StatisticUtil(this, 0);
+        statisticUtil = new StatisticUtil(this, 0);
         achievements = statisticUtil.getAchievements();
 
         removeLockIconsIfNecessary();
@@ -38,6 +41,8 @@ public class MainMenu extends AppCompatActivity {
         handleNineLetterGameButtonClick();
 
         handleHelpButtonClick();
+        findViewById(R.id.statistic_button_main_menu).setOnClickListener(v -> showStatics());
+
         builder = new AlertDialog.Builder(this);
     }
 
@@ -110,7 +115,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void showStatics() {
-        //TODO(ugur) istatikleri gosterir.
+        AllStatisticDialog allStatisticDialog = new AllStatisticDialog();
+
+        allStatisticDialog.show(getSupportFragmentManager(), "allStatistic Dialog");
     }
 
     private void showHelper() {

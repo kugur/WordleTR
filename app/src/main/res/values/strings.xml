@@ -7,4 +7,15 @@
     <string name="helper_description4"><b>İ</b> harfi kelimede var ve doğru yerde.</string>
     <string name="helper_description5"><b>S</b> harfi kelimede var fakat yanlış yerde.</string>
     <string name="helper_description6"><b>R</b> harfi kelimede yok.</string>
+    <string name="statistic_total_game">Toplam Oyun</string>
+    <string name="statistic_ratio_win">% Kazanma</string>
+    <string name="statistic_strike">Pes pese Kazanma</string>
+    <string name="statistic_max_strike">Maks Pes pese Kazanma</string>
+    <string name="statistic_five_letter_title">Bes Harfliler</string>
+    <string name="statistic_six_letter_title">Altı Harfliler</string>
+    <string name="statistic_seven_letter_title">Yedi Harfliler</string>
+    <string name="statistic_four_letter_title">Dört Harfliler</string>
+    <string name="statistic_eight_letter_title">Sekiz Harfliler</string>
+    <string name="statistic_nine_letter_title">Dokuz Harfliler</string>
+
 </resources>
