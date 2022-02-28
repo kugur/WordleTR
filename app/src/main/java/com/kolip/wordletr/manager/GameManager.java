@@ -2,8 +2,11 @@ package com.kolip.wordletr.manager;
 
 import android.app.Activity;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.kolip.wordletr.BoxStatus;
 import com.kolip.wordletr.BoxView;
+import com.kolip.wordletr.R;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.store.StatisticUtil;
 import com.kolip.wordletr.trdict.DictionaryHelper;
@@ -25,6 +28,8 @@ public class GameManager {
     private Consumer<Boolean> onFinished;
     private DictionaryHelper dictionaryHelper;
     private StatisticUtil statisticUtil;
+    private Snackbar errorSnackbar;
+
 
     public GameManager(Activity activity, CustomKeyboard customKeyboard, BoxView[][] boxes,
                        Consumer<Boolean> onFinished, StatisticUtil statisticUtil) {
@@ -34,7 +39,11 @@ public class GameManager {
         this.customKeyboard = customKeyboard;
         this.onFinished = onFinished;
         this.statisticUtil = statisticUtil;
-        dictionaryHelper = new DictionaryHelper(activity);
+        errorSnackbar = Snackbar.make(activity.findViewById(R.id.game_parent_view), "Girilen Kelime Sözlükte yok!", 600)
+                .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
+                .setAnchorView(R.id.dialog_error)
+                .setBackgroundTint(activity.getResources().getColor(R.color.background_color_end));
+        dictionaryHelper = new DictionaryHelper(activity, columnCount);
 
         correctWord = dictionaryHelper.getCurrentWord(columnCount,
                 statisticUtil.getTotalGame());
@@ -67,6 +76,8 @@ public class GameManager {
     public void enter() {
         if (column != columnCount) return;
 
+        if (!validate()) return;
+
         guestCorrectly = validateAndSetColors();
         if (guestCorrectly || row == rowCount - 1) {
             finishedGame();
@@ -76,6 +87,15 @@ public class GameManager {
         row++;
         column = 0;
         while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+    }
+
+    private boolean validate() {
+
+        if (!dictionaryHelper.isExist(convertToString(enteredWord))) {
+            errorSnackbar.show();
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -109,6 +129,10 @@ public class GameManager {
     private void setColors(String keyboardKeyValue, int boxIndex, BoxStatus status) {
         customKeyboard.setKeyStatus(keyboardKeyValue, status);
         boxes[row][boxIndex].setStatus(status);
+    }
+
+    private String convertToString(Stack<String> worlds) {
+        return worlds.stream().reduce("", (w1, w2) -> w1 + w2);
     }
 
     /**

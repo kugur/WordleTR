@@ -16,19 +16,23 @@ public class DictionaryHelper {
     private final String WORDS_DICT_PATH = "WordDict";
 
     private AssetManager assetManager;
+    private HashSet<String> trDict;
+    private int worldLength;
 
-    public DictionaryHelper(Activity activity) {
+    public DictionaryHelper(Activity activity, int wordLength) {
+        this.worldLength = wordLength;
         assetManager = activity.getAssets();
+        trDict = getDictionary(activity);
     }
 
-    public HashSet<String> getDictionary(Activity parentActivity, int wordLength) {
+    private HashSet<String> getDictionary(Activity parentActivity) {
         String lineValue = "";
         ArrayList<String> gameWords = new ArrayList<>();
 
-        HashSet<String> trDict = new HashSet<>();
+        trDict = new HashSet<>();
         try {
             BufferedReader dictBufferedReader =
-                    getFileReader(generateWordsDictsFileUrl(wordLength));
+                    getFileReader(generateWordsDictsFileUrl(worldLength));
             lineValue = dictBufferedReader.readLine();
             do {
                 trDict.add(lineValue);
@@ -41,6 +45,10 @@ public class DictionaryHelper {
         }
 
         return trDict;
+    }
+
+    public boolean isExist(String world) {
+        return trDict.contains(world);
     }
 
     public String getCurrentWord(int wordLength, int level) {

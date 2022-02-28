@@ -59,40 +59,40 @@ public class ExampleUnitTest {
         assertEquals(String.valueOf(dChar), "D");
     }
 
-    @Test
-    public void dictTest() throws FileNotFoundException {
-        DictionaryHelper dictionaryHelper = new DictionaryHelper();
-        HashSet<String> dict = dictionaryHelper.getDictionary(null, 5);
-        assertNotNull(dict);
-//        assertEquals("Should be same size", 5559, dict.size());
-    }
-
-    private void storeShuffleWords( HashSet<String> dict) throws FileNotFoundException {
-
-        ArrayList<String> gameWords = new ArrayList<>();
-        gameWords.addAll(dict);
-        Collections.shuffle(gameWords);
-
-        BufferedWriter bufferedWriter =
-                new BufferedWriter(new OutputStreamWriter(
-                        new FileOutputStream("src/main/assets/5SelectedWords")));
-
-        gameWords.forEach(word -> {{
-            try {
-                if (word != null) {
-                    bufferedWriter.write(word);
-                    bufferedWriter.newLine();
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }});
-
-        try {
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    @Test
+//    public void dictTest() throws FileNotFoundException {
+//        DictionaryHelper dictionaryHelper = new DictionaryHelper();
+//        HashSet<String> dict = dictionaryHelper.getDictionary(null, 5);
+//        assertNotNull(dict);
+////        assertEquals("Should be same size", 5559, dict.size());
+//    }
+//
+//    private void storeShuffleWords( HashSet<String> dict) throws FileNotFoundException {
+//
+//        ArrayList<String> gameWords = new ArrayList<>();
+//        gameWords.addAll(dict);
+//        Collections.shuffle(gameWords);
+//
+//        BufferedWriter bufferedWriter =
+//                new BufferedWriter(new OutputStreamWriter(
+//                        new FileOutputStream("src/main/assets/5SelectedWords")));
+//
+//        gameWords.forEach(word -> {{
+//            try {
+//                if (word != null) {
+//                    bufferedWriter.write(word);
+//                    bufferedWriter.newLine();
+//                }
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }});
+//
+//        try {
+//            bufferedWriter.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

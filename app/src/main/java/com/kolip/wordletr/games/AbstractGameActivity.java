@@ -32,43 +32,6 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         customKeyboard.setListener(this::handleButtonClick);
         customKeyboard.setDeleteListener(v -> handleDeleteClick());
 
-//        BoxView[][] boxes = {
-//                {findViewById(R.id.row_1_box_1),
-//                        findViewById(R.id.row_1_box_2),
-//                        findViewById(R.id.row_1_box_3),
-//                        findViewById(R.id.row_1_box_4),
-//                        findViewById(R.id.row_1_box_5)},
-//                {
-//                        findViewById(R.id.row_2_box_1),
-//                        findViewById(R.id.row_2_box_2),
-//                        findViewById(R.id.row_2_box_3),
-//                        findViewById(R.id.row_2_box_4),
-//                        findViewById(R.id.row_2_box_5)},
-//                {
-//                        findViewById(R.id.row_3_box_1),
-//                        findViewById(R.id.row_3_box_2),
-//                        findViewById(R.id.row_3_box_3),
-//                        findViewById(R.id.row_3_box_4),
-//                        findViewById(R.id.row_3_box_5)},
-//                {
-//                        findViewById(R.id.row_4_box_1),
-//                        findViewById(R.id.row_4_box_2),
-//                        findViewById(R.id.row_4_box_3),
-//                        findViewById(R.id.row_4_box_4),
-//                        findViewById(R.id.row_4_box_5)},
-//                {
-//                        findViewById(R.id.row_5_box_1),
-//                        findViewById(R.id.row_5_box_2),
-//                        findViewById(R.id.row_5_box_3),
-//                        findViewById(R.id.row_5_box_4),
-//                        findViewById(R.id.row_5_box_5)},
-//                {
-//                        findViewById(R.id.row_6_box_1),
-//                        findViewById(R.id.row_6_box_2),
-//                        findViewById(R.id.row_6_box_3),
-//                        findViewById(R.id.row_6_box_4),
-//                        findViewById(R.id.row_6_box_5)}
-//        };
         statisticUtil = new StatisticUtil(this, getBoxes()[0].length);
         gameManager = new GameManager(this, customKeyboard, getBoxes(), this::onFinished,
                 statisticUtil);
@@ -106,6 +69,4 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         //TODO(Ugur) Uzerindeki dugmeleri filan silmek gerekiyor !!!!
         finishedDialog.show(getSupportFragmentManager(), "ugur");
     }
-
-
 }

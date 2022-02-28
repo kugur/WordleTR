@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".games.FiveLetterGameActivity">
+    tools:context=".games.FiveLetterGameActivity"
+    android:id="@+id/game_parent_view">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/boxes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -238,10 +239,19 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/dialog_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/custom_keyboard"
+        app:layout_constraintTop_toBottomOf="@+id/boxes"
+        app:layout_constraintVertical_bias="0.124"
+        tools:layout_editor_absoluteX="0dp" />
+
     <com.kolip.wordletr.keyboard.CustomKeyboard
         android:id="@+id/custom_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
