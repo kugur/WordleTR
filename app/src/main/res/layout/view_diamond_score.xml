@@ -12,14 +12,12 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:background="@drawable/rounded_border"
         android:gravity="center"
         android:text="20"
-        android:layout_marginHorizontal="100dp"
-
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,15 +25,15 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/diamond_add"
-        android:layout_width="49dp"
-        android:layout_height="51dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/ic_baseline_add_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="21dp"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/ic_purple_diamond"
