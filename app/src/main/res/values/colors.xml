@@ -19,6 +19,7 @@
     <color name="gray_600">#FF757575</color>
     <color name="background_color_start"> #A8DADC</color>
     <color name="background_color_end"> #457B9D</color>
+    <color name="transperant">#00000000</color>
 <!--    <color name="background_color_start">#003B46</color>-->
 <!--    <color name="background_color_end">#07575B</color>-->
     <color name="main_menu_button">#05405A</color>

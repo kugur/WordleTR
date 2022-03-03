@@ -1,21 +1,15 @@
 package com.kolip.wordletr.keyboard;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import com.kolip.wordletr.BoxStatus;
+import com.kolip.wordletr.views.BoxStatus;
 import com.kolip.wordletr.R;
 
 public class Key extends AppCompatButton {

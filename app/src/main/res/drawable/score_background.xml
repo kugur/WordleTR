@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="100dp" android:height="50dp"/>
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+    <item android:right="5dp" >
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="20dp"/>
+            <stroke android:width="3dp" android:color="@android:color/black" />
+            <solid android:color="@color/background_color_end"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/ic_purple_diamond"  android:left="5dp" android:top="5dp" android:bottom="5dp" android:right="50dp"/>
+
+
+    <item android:drawable="@drawable/ic_baseline_add_circle_24"
+        android:left="60dp" android:right="-4dp" android:top="-4dp"  android:bottom="-4dp"/>
+</layer-list>

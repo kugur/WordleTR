@@ -1,4 +1,4 @@
-package com.kolip.wordletr;
+package com.kolip.wordletr.views;
 
 public enum BoxStatus {
     EMPTY_TEXT,

@@ -24,7 +24,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout .activity_main_menu);
         findViewById(R.id.main_menu).setBackgroundDrawable(getResources().getDrawable(R.drawable.main_menu_background));
 
         statisticUtil = new StatisticUtil(this, 0);

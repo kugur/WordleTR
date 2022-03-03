@@ -5,19 +5,23 @@ import android.util.Log;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.kolip.wordletr.BoxView;
+import com.kolip.wordletr.dialog.WatchAdDialog;
+import com.kolip.wordletr.views.BoxView;
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.dialog.GameFinishedDialog;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.keyboard.Key;
 import com.kolip.wordletr.manager.GameManager;
 import com.kolip.wordletr.store.StatisticUtil;
+import com.kolip.wordletr.views.DiamondScoreView;
 
 public abstract class AbstractGameActivity extends FragmentActivity {
     private CustomKeyboard customKeyboard;
     private GameManager gameManager;
     private GameFinishedDialog finishedDialog;
     private StatisticUtil statisticUtil;
+
+    private WatchAdDialog watchAdDialog;
 
 
     protected abstract BoxView[][] getBoxes();
@@ -38,6 +42,11 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         finishedDialog = new GameFinishedDialog();
 //        statisticUtil = new StatisticUtil(this, getBoxes()[0].length);
         finishedDialog.setStatistic(statisticUtil.getStatics());
+
+        ((DiamondScoreView)findViewById(R.id.dimaon_score_view)).setListener(view -> {
+            watchAdDialog = new WatchAdDialog();
+            watchAdDialog.show(getSupportFragmentManager(), "watchAds");
+        });
     }
 
     private void handleButtonClick(Key keyView) {

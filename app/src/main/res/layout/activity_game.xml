@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_parent_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".games.FiveLetterGameActivity"
-    android:id="@+id/game_parent_view">
+    android:background="@color/background_color_start"
+    tools:context=".games.FiveLetterGameActivity">
 
     <LinearLayout
         android:id="@+id/boxes"
@@ -20,35 +21,26 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_1_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_1_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_1_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_1_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_1_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
+
 
         </LinearLayout>
 
@@ -57,35 +49,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_2_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_2_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_2_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_2_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_2_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
         </LinearLayout>
 
@@ -94,35 +76,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_3_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_3_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_3_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_3_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_3_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
         </LinearLayout>
 
@@ -131,35 +103,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_4_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_4_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_4_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_4_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_4_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
         </LinearLayout>
 
@@ -168,35 +130,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_5_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_5_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_5_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_5_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_5_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
         </LinearLayout>
 
@@ -205,37 +157,46 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_6_box_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_6_box_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_6_box_3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_6_box_4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
-            <com.kolip.wordletr.BoxView
+            <com.kolip.wordletr.views.BoxView
                 android:id="@+id/row_6_box_5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="1dp" />
+                style="@style/myBoxDefault" />
 
         </LinearLayout>
+
+        <com.kolip.wordletr.views.DiamondScoreView
+            android:id="@+id/dimaon_score_view"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transperant"
+            android:drawableRight="@drawable/ic_purple_diamond_small"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:stateListAnimator="@null"
+            android:text="+4"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -248,10 +209,13 @@
         app:layout_constraintVertical_bias="0.124"
         tools:layout_editor_absoluteX="0dp" />
 
+
     <com.kolip.wordletr.keyboard.CustomKeyboard
         android:id="@+id/custom_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

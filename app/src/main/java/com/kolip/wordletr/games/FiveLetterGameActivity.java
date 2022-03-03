@@ -1,6 +1,6 @@
 package com.kolip.wordletr.games;
 
-import com.kolip.wordletr.BoxView;
+import com.kolip.wordletr.views.BoxView;
 import com.kolip.wordletr.R;
 
 public class FiveLetterGameActivity extends AbstractGameActivity {

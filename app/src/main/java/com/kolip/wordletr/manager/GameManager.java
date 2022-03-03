@@ -4,8 +4,8 @@ import android.app.Activity;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.kolip.wordletr.BoxStatus;
-import com.kolip.wordletr.BoxView;
+import com.kolip.wordletr.views.BoxStatus;
+import com.kolip.wordletr.views.BoxView;
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.store.StatisticUtil;
@@ -39,7 +39,7 @@ public class GameManager {
         this.customKeyboard = customKeyboard;
         this.onFinished = onFinished;
         this.statisticUtil = statisticUtil;
-        errorSnackbar = Snackbar.make(activity.findViewById(R.id.game_parent_view), "Girilen Kelime Sözlükte yok!", 600)
+        errorSnackbar = Snackbar.make(activity.findViewById(R.id.game_parent_view), "Girilen Kelime Sözlükte yok!", 800)
                 .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
                 .setAnchorView(R.id.dialog_error)
                 .setBackgroundTint(activity.getResources().getColor(R.color.background_color_end));

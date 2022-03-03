@@ -1,4 +1,4 @@
-package com.kolip.wordletr;
+package com.kolip.wordletr.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.kolip.wordletr.R;
 
 public class BoxView extends androidx.appcompat.widget.AppCompatTextView {
 

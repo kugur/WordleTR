@@ -4,18 +4,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import com.kolip.wordletr.trdict.DictionaryHelper;
+import com.kolip.wordletr.views.BoxView;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Stack;
 
 /**

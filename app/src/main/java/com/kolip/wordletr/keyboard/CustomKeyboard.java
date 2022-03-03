@@ -1,8 +1,6 @@
 package com.kolip.wordletr.keyboard;
 
 import android.content.Context;
-import android.inputmethodservice.KeyboardView;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,13 +8,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
-import com.kolip.wordletr.BoxStatus;
+import com.kolip.wordletr.views.BoxStatus;
 import com.kolip.wordletr.R;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Consumer;
 
 public class CustomKeyboard extends LinearLayout {
