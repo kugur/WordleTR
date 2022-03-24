@@ -4,12 +4,12 @@ import android.app.Activity;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.kolip.wordletr.views.BoxStatus;
-import com.kolip.wordletr.views.BoxView;
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.store.StatisticUtil;
 import com.kolip.wordletr.trdict.DictionaryHelper;
+import com.kolip.wordletr.views.BoxStatus;
+import com.kolip.wordletr.views.BoxView;
 
 import java.util.Stack;
 import java.util.function.Consumer;
@@ -29,24 +29,31 @@ public class GameManager {
     private DictionaryHelper dictionaryHelper;
     private StatisticUtil statisticUtil;
     private Snackbar errorSnackbar;
+    private WordManager wordManager;
+    private DiamondManager diamondManager;
+    private GameStatusManager statusManager;
 
 
     public GameManager(Activity activity, CustomKeyboard customKeyboard, BoxView[][] boxes,
-                       Consumer<Boolean> onFinished, StatisticUtil statisticUtil) {
+                       Consumer<Boolean> onFinished, StatisticUtil statisticUtil, WordManager wordManager,
+                       DiamondManager diamondManager, GameStatusManager statusManager) {
         this.boxes = boxes;
         rowCount = boxes.length;
         columnCount = boxes[0].length;
         this.customKeyboard = customKeyboard;
         this.onFinished = onFinished;
         this.statisticUtil = statisticUtil;
+        this.wordManager = wordManager;
         errorSnackbar = Snackbar.make(activity.findViewById(R.id.game_parent_view), "Girilen Kelime Sözlükte yok!", 800)
                 .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_FADE)
                 .setAnchorView(R.id.dialog_error)
                 .setBackgroundTint(activity.getResources().getColor(R.color.background_color_end));
         dictionaryHelper = new DictionaryHelper(activity, columnCount);
 
-        correctWord = dictionaryHelper.getCurrentWord(columnCount,
-                statisticUtil.getTotalGame());
+        correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
+        wordManager.setCorrectWord(correctWord);
+        this.diamondManager = diamondManager;
+        this.statusManager = statusManager;
     }
 
     /**
@@ -79,14 +86,39 @@ public class GameManager {
         if (!validate()) return;
 
         guestCorrectly = validateAndSetColors();
-        if (guestCorrectly || row == rowCount - 1) {
+        if (guestCorrectly || row >= rowCount - 2) {
             finishedGame();
             return;
         }
 
+        nextRow();
+    }
+
+    public void nextRow() {
         row++;
         column = 0;
         while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+    }
+
+    public void newGame() {
+        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            for (int columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+                boxes[rowIndex][columnIndex].setBoxText("");
+            }
+        }
+
+        column = 0;
+        row = 0;
+
+        customKeyboard.clearKeys();
+        while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+
+        correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
+        wordManager.setCorrectWord(correctWord);
+    }
+
+    public boolean getCorrectGuest() {
+        return guestCorrectly;
     }
 
     private boolean validate() {
@@ -113,9 +145,11 @@ public class GameManager {
 
             if (enteredChar.equals(charAtIndexOfCorrectWord)) {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.CORRECT_POSITION);
+                wordManager.setCorrectPositionLetters(enteredChar);
             } else if (correctWord.contains(enteredChar)) {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.WRONG_POSITION);
                 wordMatched = false;
+                wordManager.setNotCorrectPositionLetter(enteredChar);
             } else {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.WRONG_CHAR);
                 wordMatched = false;
@@ -139,7 +173,30 @@ public class GameManager {
      * If the world is guest correctly or there is not any box, it will finish the game.
      */
     private void finishedGame() {
+        addDiamondScore();
+        if (guestCorrectly || statusManager.getStates() == GameStates.SECOND_CHANGE) {
+            statusManager.setStatus(GameStates.FINISHED);
+        } else {
+            statusManager.setStatus(GameStates.BEFORE_FINISHED);
+        }
+
         if (onFinished != null) onFinished.accept(guestCorrectly);
     }
 
+    private void addDiamondScore() {
+        switch (row) {
+            case 0:
+                diamondManager.addDiamondScore(4);
+                break;
+            case 1:
+                diamondManager.addDiamondScore(3);
+                break;
+            case 2:
+                diamondManager.addDiamondScore(2);
+                break;
+            case 3:
+                diamondManager.addDiamondScore(1);
+                break;
+        }
+    }
 }

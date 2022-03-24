@@ -163,35 +163,11 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <LinearLayout
+            <ImageButton
+                android:id="@+id/give_life_on_game_finished"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yeni Oyun Kalan Sure"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="01:48:23"
-                    android:textSize="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:textColor="@color/black"
-                    />
-            </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_joker_give_life"/>
 
             <View style="@style/Divider"
                 android:layout_margin="20dp"/>
@@ -199,18 +175,12 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/game_finished_button"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/green"
-                android:text="Yeni Oyun"
+                android:text="@string/new_game"
+                android:textSize="10sp"
+                android:drawableRight="@drawable/ic_baseline_navigate_next_24"
                 />
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Oyun Bitti"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
         </LinearLayout>
 

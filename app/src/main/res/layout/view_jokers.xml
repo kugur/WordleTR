@@ -5,17 +5,27 @@
     android:layout_margin="5dp"
     android:orientation="vertical">
 
-ø    <ImageButton
+    <ImageButton
+        android:id="@+id/give_letter_joker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
         android:background="@drawable/joker_give_letter_icon" />
 
     <ImageButton
+        android:id="@+id/letter_counts_joker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
         android:background="@drawable/joker_counts_icon" />
+
+    <ImageButton
+        android:id="@+id/give_life_joker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/ic_joker_give_life" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

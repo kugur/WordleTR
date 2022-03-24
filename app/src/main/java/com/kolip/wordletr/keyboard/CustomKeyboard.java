@@ -85,4 +85,8 @@ public class CustomKeyboard extends LinearLayout {
     public void setKeyStatus(String keyValue, BoxStatus status) {
         keyMap.get(keyValue).setStatus(status);
     }
+
+    public void clearKeys() {
+        keyMap.forEach((s, key) -> key.clear());
+    }
 }

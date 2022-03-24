@@ -19,9 +19,11 @@ import java.util.function.Consumer;
 
 public class GameFinishedDialog extends AppCompatDialogFragment {
 
-    private Consumer<View> listener;
+    private Consumer<View> nextGameButtonListener;
+    private Consumer<View> giveLifeButtonListener;
     private View customDialog;
     private Statitics statistic;
+    private int showGiveLife;
 
     @NonNull
     @Override
@@ -32,21 +34,35 @@ public class GameFinishedDialog extends AppCompatDialogFragment {
         builder.setView(customDialog);
         customDialog.findViewById(R.id.game_finished_button).setOnClickListener(v -> {
             Log.d("GameFinishedDialog", "Finish button has been clicked.");
-            if (customDialog != null) {
-                listener.accept(v);
+            if (nextGameButtonListener != null) {
+                nextGameButtonListener.accept(v);
             }
         });
+
+        customDialog.findViewById(R.id.give_life_on_game_finished).setOnClickListener(v -> {
+            Log.d("GameFinishedDialog", "Give Life button has been clicked.");
+            if (giveLifeButtonListener != null) giveLifeButtonListener.accept(v);
+        });
+        customDialog.findViewById(R.id.give_life_on_game_finished).setVisibility(showGiveLife);
 
         initializeStatics();
         return builder.create();
     }
 
-    public void setGameFinishedDialogListener(Consumer<View> dialogListener) {
-        listener = dialogListener;
+    public void setNextGameButtonListener(Consumer<View> nextGameButtonListener) {
+        this.nextGameButtonListener = nextGameButtonListener;
+    }
+
+    public void setGiveLifeButtonListener(Consumer<View> giveLifeButtonListener) {
+        this.giveLifeButtonListener = giveLifeButtonListener;
     }
 
     public void setStatistic(Statitics statistic) {
         this.statistic = statistic;
+    }
+
+    public void showGiveLife(boolean visibility) {
+        showGiveLife = visibility ? View.VISIBLE : View.INVISIBLE;
     }
 
     private void initializeStatics() {

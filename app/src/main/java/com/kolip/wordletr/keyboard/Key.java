@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import com.kolip.wordletr.views.BoxStatus;
 import com.kolip.wordletr.R;
+import com.kolip.wordletr.views.BoxStatus;
 
 public class Key extends AppCompatButton {
     private BoxStatus status;
@@ -60,5 +60,11 @@ public class Key extends AppCompatButton {
         //the color is a direct color int and not a color resource
         DrawableCompat.setTint(buttonDrawable, color);
         setBackground(buttonDrawable);
+    }
+
+    public void clear() {
+        status = BoxStatus.EMPTY_TEXT;
+        setTextColor(getResources().getColor(R.color.black));
+        setDrawableBackgroundColor(getResources().getColor(R.color.light_grey));
     }
 }

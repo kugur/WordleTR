@@ -51,12 +51,12 @@ public class DictionaryHelper {
         return trDict.contains(world);
     }
 
-    public String getCurrentWord(int wordLength, int level) {
+    public String getCurrentWord(int level) {
         //TODO(ugur) Burada objeyi bir kere cekip tutsak daha mantikli olur !!!!
         //TODO(Ugur) nesne olusturacak isen sinif attr olarak koy Activity.
         ArrayList<String> selectedWords = new ArrayList<>();
         BufferedReader selectedWordBufferReader =
-                getFileReader(generateSelectedWordsFileUrl(wordLength));
+                getFileReader(generateSelectedWordsFileUrl(worldLength));
         try {
             String word = "";
             while ((word = selectedWordBufferReader.readLine()) != null) {

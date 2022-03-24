@@ -1,7 +1,9 @@
 package com.kolip.wordletr.games;
 
-import com.kolip.wordletr.views.BoxView;
+import android.view.View;
+
 import com.kolip.wordletr.R;
+import com.kolip.wordletr.views.BoxView;
 
 public class FiveLetterGameActivity extends AbstractGameActivity {
     @Override
@@ -50,5 +52,10 @@ public class FiveLetterGameActivity extends AbstractGameActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_game;
+    }
+
+    @Override
+    public View getLastRowView() {
+        return findViewById(R.id.row_6);
     }
 }

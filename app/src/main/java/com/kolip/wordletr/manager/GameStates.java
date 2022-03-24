@@ -3,5 +3,7 @@ package com.kolip.wordletr.manager;
 public enum GameStates {
     READY,
     PLAYING,
-    BEFORE_
+    SECOND_CHANGE,
+    BEFORE_FINISHED,
+    FINISHED
 }

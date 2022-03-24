@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.20520833333333333" />
+        <entry key="../../../Library/Android/sdk/platforms/android-31/data/res/drawable/btn_default.xml" value="0.179" />
+        <entry key="../../../Library/Android/sdk/platforms/android-31/data/res/drawable/btn_default_material.xml" value="0.179" />
+        <entry key="../../../Library/Android/sdk/platforms/android-31/data/res/drawable/btn_default_mtrl_shape.xml" value="0.179" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_border.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_drawable_style.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
@@ -18,30 +21,34 @@
         <entry key="app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.4185185185185185" />
         <entry key="app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2895" />
+        <entry key="app/src/main/res/drawable/ic_joker_give_life.xml" value="0.2475" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/ic_purple_diamond.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_purple_diamond_circle.xml" value="0.17" />
         <entry key="app/src/main/res/drawable/ic_purple_diamond_small.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/joker_counts_icon.xml" value="0.2475" />
         <entry key="app/src/main/res/drawable/main_menu_background.xml" value="0.2078125" />
         <entry key="app/src/main/res/drawable/rounded_border.xml" value="0.303" />
         <entry key="app/src/main/res/drawable/score_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/statistic.xml" value="0.165" />
         <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.5635416666666667" />
-        <entry key="app/src/main/res/layout/activity_game.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/activity_game.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.42604166666666665" />
         <entry key="app/src/main/res/layout/activity_six_letter_game.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/custom_keyboard.xml" value="0.2375" />
         <entry key="app/src/main/res/layout/dialog_all_statistics.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_game_finished.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/dialog_helper.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_give_letter.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/dialog_helper.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/dialog_letter_count_joker.xml" value="0.3807291666666667" />
         <entry key="app/src/main/res/layout/dialog_statistic_section.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/dialog_watch_ads.xml" value="0.1375" />
+        <entry key="app/src/main/res/layout/dialog_watch_ads.xml" value="0.25" />
         <entry key="app/src/main/res/layout/game_finished_dialog.xml" value="0.375" />
         <entry key="app/src/main/res/layout/main_title.xml" value="0.42604166666666665" />
         <entry key="app/src/main/res/layout/sample_box.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/view_diamond_score.xml" value="0.42864583333333334" />
-        <entry key="app/src/main/res/layout/view_jokers.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_jokers.xml" value="0.1" />
       </map>
     </option>
   </component>

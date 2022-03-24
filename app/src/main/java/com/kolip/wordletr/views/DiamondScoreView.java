@@ -3,6 +3,7 @@ package com.kolip.wordletr.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,5 +38,9 @@ public class DiamondScoreView extends ConstraintLayout {
     public void setListener(Consumer<View> listener) {
         findViewById(R.id.diamond_add).setOnClickListener(view -> listener.accept(view));
 
+    }
+
+    public void setDiamondCount(int diamondCount) {
+        ((TextView) findViewById(R.id.diamond_score_text)).setText(String.valueOf(diamondCount));
     }
 }

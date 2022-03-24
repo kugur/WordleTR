@@ -17,5 +17,10 @@
     <string name="statistic_four_letter_title">Dört Harfliler</string>
     <string name="statistic_eight_letter_title">Sekiz Harfliler</string>
     <string name="statistic_nine_letter_title">Dokuz Harfliler</string>
+    <string name="given_letter_title"> HARFLERDEN BİR TANESİ</string>
+    <string name="given_letter_no_letter_title">TÜM HARFLER BULUNMUŞ!</string>
+    <string name="letter_counts_title">HARFLERDEN KAÇAR TANE VAR</string>
+    <string name="watch_ads_earn_dimaond_title">REKLAM İZLE ve PUAN KAZAN</string>
+    <string name="new_game">YENİ OYUN</string>
 
 </resources>

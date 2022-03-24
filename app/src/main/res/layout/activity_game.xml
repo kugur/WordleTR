@@ -8,12 +8,18 @@
     android:background="@color/background_color_start"
     tools:context=".games.FiveLetterGameActivity">
 
+    <include
+        android:id="@+id/main_game_title"
+        layout="@layout/main_title"
+        app:layout_constraintBottom_toTopOf="@id/game_joker_area"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/game_joker_area"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/main_game_title">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -221,9 +227,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/row_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:visibility="invisible">
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_1"
@@ -257,20 +265,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/next_game_button_on_game"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/green"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/boxes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/boxes" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/joker_result_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aaaaaaaaaa"
-        app:layout_constraintEnd_toStartOf="@+id/dimaon_score_view"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/diamond_score_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_joker_area" />
 
     <com.kolip.wordletr.views.DiamondScoreView
-        android:id="@+id/dimaon_score_view"
+        android:id="@+id/diamond_score_view"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_joker_area" />
 
@@ -291,5 +313,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toTopOf="@+id/custom_keyboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joker_result_description"
+        app:layout_constraintVertical_bias="1.0">
+
+    </com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

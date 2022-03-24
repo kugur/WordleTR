@@ -15,20 +15,35 @@
         <item name="boxButtonStyle">@style/myBoxDefault</item>
         <item name="keyButtonStyle">@style/myKeyboardKeyStyle</item>
     </style>
-
     <style name="myBoxDefault">
-        <item name="android:layout_width"> 58dp </item>
-        <item name="android:layout_height">58dp</item>
-        <item name="android:background"> @drawable/box_border</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/box_border</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">35dp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin"> 1dp </item>
     </style>
 
-    <style name="myKeyboardKeyStyle">
-        <item name="android:layout_width">35dp</item>
+    <style name="helperBox">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/box_border</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <!--        <item name="android:backgroundTint">@color/white</item>-->
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
+    <style name="myKeyboardKeyStyle" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="maxWidth">35dp</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_height">50dp</item>
-        <item name="backgroundColor">@color/grey_background</item>
+        <item name="backgroundTint">@color/light_grey</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">13dp</item>
@@ -37,6 +52,13 @@
     <style name="Divider" parent="Theme.AppCompat">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/black</item>
+        <item name="color">@color/black</item>
+    </style>
+
+    <style name="HorizontalDivider" parent="Theme.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/black</item>
         <item name="color">@color/black</item>
     </style>
