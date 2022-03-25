@@ -31,12 +31,11 @@ public class GameManager {
     private Snackbar errorSnackbar;
     private WordManager wordManager;
     private DiamondManager diamondManager;
-    private GameStatusManager statusManager;
 
 
     public GameManager(Activity activity, CustomKeyboard customKeyboard, BoxView[][] boxes,
                        Consumer<Boolean> onFinished, StatisticUtil statisticUtil, WordManager wordManager,
-                       DiamondManager diamondManager, GameStatusManager statusManager) {
+                       DiamondManager diamondManager) {
         this.boxes = boxes;
         rowCount = boxes.length;
         columnCount = boxes[0].length;
@@ -53,7 +52,6 @@ public class GameManager {
         correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
         wordManager.setCorrectWord(correctWord);
         this.diamondManager = diamondManager;
-        this.statusManager = statusManager;
     }
 
     /**
@@ -174,12 +172,6 @@ public class GameManager {
      */
     private void finishedGame() {
         addDiamondScore();
-        if (guestCorrectly || statusManager.getStates() == GameStates.SECOND_CHANGE) {
-            statusManager.setStatus(GameStates.FINISHED);
-        } else {
-            statusManager.setStatus(GameStates.BEFORE_FINISHED);
-        }
-
         if (onFinished != null) onFinished.accept(guestCorrectly);
     }
 

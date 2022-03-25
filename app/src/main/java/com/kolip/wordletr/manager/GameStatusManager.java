@@ -4,18 +4,15 @@ import android.view.View;
 
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.games.AbstractGameActivity;
-import com.kolip.wordletr.views.JokersFragment;
 
 public class GameStatusManager {
 
     private AbstractGameActivity gameActivity;
-    private JokersFragment jokersFragment;
 
     private GameStates states;
 
-    public GameStatusManager(AbstractGameActivity gameActivity, JokersFragment jokersFragment) {
+    public GameStatusManager(AbstractGameActivity gameActivity) {
         this.gameActivity = gameActivity;
-        this.jokersFragment = jokersFragment;
     }
 
     //TODO(ugur) burasi statuslerin etkisi listener ile mi yapsak ???
@@ -43,26 +40,26 @@ public class GameStatusManager {
     }
 
     private void applyFinished() {
-        jokersFragment.setVisibleOfJokers(false);
+        gameActivity.getJokerView().setVisibleOfJokers(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.VISIBLE);
     }
 
     private void applyReady() {
         gameActivity.getLastRowView().setVisibility(View.INVISIBLE);
-        jokersFragment.setJokerDescription("");
-        jokersFragment.setVisibleOfJokers(true);
-        jokersFragment.setVisibilityOfGiveLife(false);
+        gameActivity.getJokerView().setJokerDescription("");
+        gameActivity.getJokerView().setVisibleOfJokers(true);
+        gameActivity.getJokerView().setVisibilityOfGiveLife(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);
     }
 
     private void applySecondChange() {
         gameActivity.getLastRowView().setVisibility(View.VISIBLE);
-        jokersFragment.setVisibilityOfGiveLife(false);
+        gameActivity.getJokerView().setVisibilityOfGiveLife(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);
     }
 
     private void applyBeforeFinished() {
-        jokersFragment.setVisibilityOfGiveLife(true);
+        gameActivity.getJokerView().setVisibilityOfGiveLife(true);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.VISIBLE);
     }
 }
