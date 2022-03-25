@@ -3,6 +3,7 @@ package com.kolip.wordletr.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,10 @@ public class GameFinishedDialog extends AppCompatDialogFragment {
     private View customDialog;
     private Statitics statistic;
     private int showGiveLife;
+    private Spanned description;
+    private String title;
+
+
 
     @NonNull
     @Override
@@ -44,7 +49,7 @@ public class GameFinishedDialog extends AppCompatDialogFragment {
             if (giveLifeButtonListener != null) giveLifeButtonListener.accept(v);
         });
         customDialog.findViewById(R.id.give_life_on_game_finished).setVisibility(showGiveLife);
-
+        ((TextView) customDialog.findViewById(R.id.correct_word_on_finished_dialog)).setText(description);
         initializeStatics();
         return builder.create();
     }
@@ -65,7 +70,16 @@ public class GameFinishedDialog extends AppCompatDialogFragment {
         showGiveLife = visibility ? View.VISIBLE : View.INVISIBLE;
     }
 
+    public void setDescription(Spanned description) {
+        this.description = description;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private void initializeStatics() {
+        ((TextView) customDialog.findViewById(R.id.dialog_game_finished_title)).setText(title);
         ((TextView) customDialog.findViewById(R.id.total_game)).setText(statistic.getTotalGame());
         ((TextView) customDialog.findViewById(R.id.total_win)).setText(statistic.getSuccessRatio());
         ((TextView) customDialog.findViewById(R.id.strike)).setText(statistic.getStrike());

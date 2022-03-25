@@ -61,7 +61,7 @@ public class StatisticUtil {
 
     public Statitics getStatics() {
         return new Statitics(totalGame,
-                totalGuessCorrectly > 0 ? (int) (totalGame * 100 / totalGuessCorrectly) : 0,
+                totalGuessCorrectly > 0 ? (int) ( 100 * totalGuessCorrectly / totalGame) : 0,
                 strikeCount, maxStrikeCount);
     }
 

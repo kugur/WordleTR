@@ -11,12 +11,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class WordManager {
+    private String correctWord = "";
     private Set<String> correctWordSet = new ArraySet<>();
     private HashMap<String, Integer> letterCounts = new HashMap<>();
     private ArraySet<String> notCorrectPositionLetters = new ArraySet<>();
     private ArraySet<String> correctPositionLetters = new ArraySet<>();
 
     public void setCorrectWord(String correctWord) {
+        this.correctWord = correctWord;
         correctWordSet.clear();
         correctWordSet.addAll(Arrays.asList(correctWord.split("")));
         notCorrectPositionLetters.clear();
@@ -74,5 +76,9 @@ public class WordManager {
         letterCounts.forEach((letter, count) -> descriptionBuilder
                 .append((allFoundLetters.contains(letter) ? letter : "?") + "=" + count + " "));
         return descriptionBuilder.toString();
+    }
+
+    public String getCorrectWord() {
+        return correctWord;
     }
 }

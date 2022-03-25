@@ -2,6 +2,8 @@ package com.kolip.wordletr.games;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 
@@ -96,6 +98,16 @@ public abstract class AbstractGameActivity extends FragmentActivity {
 
     private void onFinished(boolean guessSuccessfully) {
         finishedDialog.showGiveLife(!guessSuccessfully && statusManager.getStates() == GameStates.BEFORE_FINISHED);
+
+        if (!guessSuccessfully && statusManager.getStates() == GameStates.FINISHED) {
+            Spanned styledText = Html.fromHtml(
+                    getResources().getString(R.string.finished_dialog_correct_word, wordManager.getCorrectWord()),
+                    Html.FROM_HTML_MODE_LEGACY);
+            finishedDialog.setDescription(styledText);
+        } else {
+            finishedDialog.setDescription(Html.fromHtml("", Html.FROM_HTML_MODE_LEGACY));
+        }
+
         finishedDialog.setNextGameButtonListener(v -> handleNextGame(guessSuccessfully));
 
         finishedDialog.setGiveLifeButtonListener(v -> {
@@ -113,14 +125,26 @@ public abstract class AbstractGameActivity extends FragmentActivity {
             finishedDialog.dismiss();
 
         });
+        if (guessSuccessfully || statusManager.getStates() == GameStates.FINISHED) {
+            saveStatistics(guessSuccessfully);
+        } else {
+            finishedDialog.setTitle(getResources().getString(R.string.statistic_previous));
+        }
 
         finishedDialog.show(getSupportFragmentManager(), "ugur");
     }
 
-    //TODO(ugur) burasi gameManager icinde mi olsa ???
-    private void handleNextGame(boolean guessSuccessfully) {
+    private void saveStatistics(boolean guessSuccessfully) {
+        finishedDialog.setTitle(getResources().getString(R.string.statistic));
         statisticUtil.saveStatistic(guessSuccessfully);
         finishedDialog.setStatistic(statisticUtil.getStatics());
+    }
+
+    //TODO(ugur) burasi gameManager icinde mi olsa ???
+    private void handleNextGame(boolean guessSuccessfully) {
+        if (!guessSuccessfully && statusManager.getStates() != GameStates.FINISHED) {
+            saveStatistics(guessSuccessfully);
+        }
 
         gameManager.newGame();
         statusManager.setStatus(GameStates.READY);
