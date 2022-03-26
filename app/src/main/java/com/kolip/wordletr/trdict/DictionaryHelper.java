@@ -21,17 +21,17 @@ public class DictionaryHelper {
 
     public DictionaryHelper(Activity activity, int wordLength) {
         this.worldLength = wordLength;
-        assetManager = activity.getAssets();
-        trDict = getDictionary(activity);
+        assetManager = activity != null ? activity.getAssets() : null;
+//        trDict = getDictionary();
     }
 
-    private HashSet<String> getDictionary(Activity parentActivity) {
+    public HashSet<String> getDictionary(BufferedReader fileBufferedReader) {
         String lineValue = "";
         ArrayList<String> gameWords = new ArrayList<>();
 
         trDict = new HashSet<>();
         try {
-            BufferedReader dictBufferedReader =
+            BufferedReader dictBufferedReader = fileBufferedReader != null ? fileBufferedReader :
                     getFileReader(generateWordsDictsFileUrl(worldLength));
             lineValue = dictBufferedReader.readLine();
             do {

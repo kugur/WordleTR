@@ -7,6 +7,7 @@ import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import com.kolip.wordletr.R;
@@ -35,8 +36,6 @@ public abstract class AbstractGameActivity extends FragmentActivity {
     private GameFinishedDialog finishedDialog;
     private StatisticUtil statisticUtil;
     private JokersFragment jokersFragment;
-
-//    private WatchAdDialog watchAdDialog;
 
     protected abstract BoxView[][] getBoxes();
 
@@ -73,6 +72,26 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         // Next game button listener
         findViewById(R.id.next_game_button_on_game)
                 .setOnClickListener(v -> handleNextGame(gameManager.getCorrectGuest()));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     private void initializeKeyboard() {
