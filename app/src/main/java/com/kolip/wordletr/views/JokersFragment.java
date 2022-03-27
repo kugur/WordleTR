@@ -3,7 +3,6 @@ package com.kolip.wordletr.views;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +12,7 @@ import com.kolip.wordletr.R;
 import com.kolip.wordletr.dialog.GiveLetterDialog;
 import com.kolip.wordletr.dialog.LetterCountJokerDialog;
 import com.kolip.wordletr.dialog.WatchAdDialog;
+import com.kolip.wordletr.games.AbstractGameActivity;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.manager.AdManager;
 import com.kolip.wordletr.manager.DiamondManager;
@@ -30,8 +30,11 @@ public class JokersFragment extends Fragment {
     WordManager wordManager;
     AdManager adManager;
     DiamondManager diamondManager;
-    TextView jokerResultTextView;
+    AbstractGameActivity gameActivity;
     GameStatusManager statusManager;
+
+    private boolean jokersVisibility = true;
+    private boolean giveLifeVisible = false;
 
     public JokersFragment() {
         super(R.layout.view_jokers);
@@ -48,6 +51,9 @@ public class JokersFragment extends Fragment {
         handleClickGiveLetterEvents();
         handleLetterCountsEvents();
         handleGiveLifeEvents();
+
+        setVisibleOfJokers(jokersVisibility);
+        setVisibilityOfGiveLife(giveLifeVisible);
     }
 
     private void handleClickGiveLetterEvents() {
@@ -82,7 +88,7 @@ public class JokersFragment extends Fragment {
 
             LetterCountJokerDialog letterCountJokerDialog = new LetterCountJokerDialog(wordManager.getWordCounts());
             letterCountJokerDialog.show(getChildFragmentManager(), "letterCountDialog");
-            setJokerDescription(wordManager.getWordCounts());
+            gameActivity.setJokerDescription(wordManager.getWordCounts());
 
             diamondManager.addDiamondScore(-LETTER_COUNT_COST);
         });
@@ -108,26 +114,28 @@ public class JokersFragment extends Fragment {
     }
 
     public void setDependencies(WordManager wordManager, CustomKeyboard customKeyboard, DiamondManager diamondManager,
-                                TextView jokerResultTextView, AdManager adManager, GameStatusManager statusManager) {
+                                AdManager adManager, GameStatusManager statusManager, AbstractGameActivity gameActivity) {
         this.wordManager = wordManager;
         this.customKeyboard = customKeyboard;
         this.diamondManager = diamondManager;
-        this.jokerResultTextView = jokerResultTextView;
         this.adManager = adManager;
         this.statusManager = statusManager;
+        this.gameActivity = gameActivity;
     }
 
     public void setVisibilityOfGiveLife(boolean visible) {
-        getView().findViewById(R.id.give_life_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        giveLifeVisible = visible;
+        if (getView() != null) {
+            getView().findViewById(R.id.give_life_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        }
     }
 
     public void setVisibleOfJokers(boolean visible) {
-        getView().findViewById(R.id.give_life_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-        getView().findViewById(R.id.letter_counts_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-        getView().findViewById(R.id.give_letter_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-    }
-
-    public void setJokerDescription(String description) {
-        jokerResultTextView.setText(description);
+        jokersVisibility = visible;
+        if (getView() != null) {
+            getView().findViewById(R.id.give_life_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+            getView().findViewById(R.id.letter_counts_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+            getView().findViewById(R.id.give_letter_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        }
     }
 }

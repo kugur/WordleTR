@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 
 public class StatisticUtil {
-
+    private static final String STATISTIC_CONTEXT_NAME = "statistic_wordle";
     private static final String TOTAL_GAME = "totalGame";
     private static final String TOTAL_GUESS_CORRECTLY = "totalSuccess";
     private static final String STRIKE_COUNT = "strikeCount";
@@ -23,7 +23,7 @@ public class StatisticUtil {
     private SharedPreferences sharedPreferences;
 
     public StatisticUtil(Activity gameActivity, int boxCount) {
-        sharedPreferences = gameActivity.getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = gameActivity.getSharedPreferences(STATISTIC_CONTEXT_NAME, Context.MODE_PRIVATE);
 
         this.boxCount = boxCount;
         editor = sharedPreferences.edit();
@@ -34,10 +34,10 @@ public class StatisticUtil {
     }
 
     private void initializeValues() {
-        totalGame = sharedPreferences.getInt(TOTAL_GAME + boxCount, 0);
-        totalGuessCorrectly = sharedPreferences.getInt(TOTAL_GUESS_CORRECTLY + boxCount, 0);
-        strikeCount = sharedPreferences.getInt(STRIKE_COUNT + boxCount, 0);
-        maxStrikeCount = sharedPreferences.getInt(MAX_STRIKE_COUNT + boxCount, 0);
+        totalGame = sharedPreferences.getInt(getKey(TOTAL_GAME), 0);
+        totalGuessCorrectly = sharedPreferences.getInt(getKey(TOTAL_GUESS_CORRECTLY), 0);
+        strikeCount = sharedPreferences.getInt(getKey(STRIKE_COUNT), 0);
+        maxStrikeCount = sharedPreferences.getInt(getKey(MAX_STRIKE_COUNT), 0);
     }
 
     public void saveStatistic(boolean guessCorrectly) {
@@ -49,19 +49,19 @@ public class StatisticUtil {
         } else {
             strikeCount = 0;
         }
-        editor.putInt(TOTAL_GAME, ++totalGame);
-        editor.putInt(TOTAL_GUESS_CORRECTLY, totalGuessCorrectly);
-        editor.putInt(STRIKE_COUNT, strikeCount);
-        editor.putInt(MAX_STRIKE_COUNT, maxStrikeCount);
+        editor.putInt(getKey(TOTAL_GAME), ++totalGame);
+        editor.putInt(getKey(TOTAL_GUESS_CORRECTLY), totalGuessCorrectly);
+        editor.putInt(getKey(STRIKE_COUNT), strikeCount);
+        editor.putInt(getKey(MAX_STRIKE_COUNT), maxStrikeCount);
 
         setAchievement();
 
-        editor.apply();
+        editor.commit();
     }
 
     public Statitics getStatics() {
         return new Statitics(totalGame,
-                totalGuessCorrectly > 0 ? (int) ( 100 * totalGuessCorrectly / totalGame) : 0,
+                totalGuessCorrectly > 0 ? (int) (100 * totalGuessCorrectly / totalGame) : 0,
                 strikeCount, maxStrikeCount);
     }
 
@@ -87,6 +87,10 @@ public class StatisticUtil {
                 && sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + boxCount, false)) {
             editor.putBoolean(Achievements.BOX_ENABLE_PREFIX + boxCount, true);
         }
+    }
+
+    private String getKey(String key) {
+        return key + boxCount;
     }
 
 }

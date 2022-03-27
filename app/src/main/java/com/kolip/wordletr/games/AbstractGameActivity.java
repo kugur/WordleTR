@@ -6,6 +6,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -20,6 +21,7 @@ import com.kolip.wordletr.manager.DiamondManager;
 import com.kolip.wordletr.manager.GameManager;
 import com.kolip.wordletr.manager.GameStates;
 import com.kolip.wordletr.manager.GameStatusManager;
+import com.kolip.wordletr.manager.LifeCycleManager;
 import com.kolip.wordletr.manager.WordManager;
 import com.kolip.wordletr.store.StatisticUtil;
 import com.kolip.wordletr.views.BoxView;
@@ -30,8 +32,9 @@ public abstract class AbstractGameActivity extends FragmentActivity {
     private CustomKeyboard customKeyboard;
     private GameManager gameManager;
     private WordManager wordManager;
-    GameStatusManager statusManager;
+    private GameStatusManager statusManager;
     private DiamondManager diamondManager;
+    private LifeCycleManager lifeCycleManager;
     private AdManager adManager;
     private GameFinishedDialog finishedDialog;
     private StatisticUtil statisticUtil;
@@ -55,16 +58,16 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         initializeKeyboard();
 
         statisticUtil = new StatisticUtil(this, getBoxes()[0].length);
+        lifeCycleManager = new LifeCycleManager(this, getBoxes()[0].length);
 
         jokersFragment = ((JokersFragment) (getSupportFragmentManager().findFragmentById(R.id.jokers_view)));
-        statusManager = new GameStatusManager(this);
+        statusManager = new GameStatusManager(this, lifeCycleManager);
         adManager = new AdManager(getApplicationContext(), findViewById(R.id.adBanner));
         wordManager = new WordManager();
         diamondManager = initializeDiamondManager();
         gameManager = new GameManager(this, customKeyboard, getBoxes(), this::onFinished,
-                statisticUtil, wordManager, diamondManager);
-        jokersFragment.setDependencies(wordManager, customKeyboard, diamondManager,
-                findViewById(R.id.joker_result_description), adManager, statusManager);
+                statisticUtil, wordManager, diamondManager, lifeCycleManager);
+        jokersFragment.setDependencies(wordManager, customKeyboard, diamondManager, adManager, statusManager, this);
 
         finishedDialog = new GameFinishedDialog();
         finishedDialog.setStatistic(statisticUtil.getStatics());
@@ -72,11 +75,15 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         // Next game button listener
         findViewById(R.id.next_game_button_on_game)
                 .setOnClickListener(v -> handleNextGame(gameManager.getCorrectGuest()));
+
+        gameManager.initializeFirstWords(lifeCycleManager.getEnteredWords());
+        statusManager.setStatus(lifeCycleManager.getGameStatus());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        lifeCycleManager.persist();
     }
 
     @Override
@@ -139,7 +146,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         setFinishedDialogTitle(guessSuccessfully);
         setFinishDialogButtonListeners(guessSuccessfully);
 
-        finishedDialog.show(getSupportFragmentManager(), "ugur");
+        finishedDialog.show(getSupportFragmentManager(), "finished_Dialog");
     }
 
     private void setFinishDialogButtonListeners(boolean guessSuccessfully) {
@@ -161,7 +168,9 @@ public abstract class AbstractGameActivity extends FragmentActivity {
 
         gameManager.newGame();
         statusManager.setStatus(GameStates.READY);
-        finishedDialog.dismiss();
+        if (getSupportFragmentManager().findFragmentByTag("finished_Dialog") != null) {
+            finishedDialog.dismiss();
+        }
     }
 
     private void handleGiveLife() {
@@ -196,5 +205,9 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         } else {
             finishedDialog.setTitle(getResources().getString(R.string.statistic_previous));
         }
+    }
+
+    public void setJokerDescription(String description) {
+        ((TextView) findViewById(R.id.joker_result_description)).setText(description);
     }
 }

@@ -11,6 +11,7 @@ import com.kolip.wordletr.trdict.DictionaryHelper;
 import com.kolip.wordletr.views.BoxStatus;
 import com.kolip.wordletr.views.BoxView;
 
+import java.util.List;
 import java.util.Stack;
 import java.util.function.Consumer;
 
@@ -31,11 +32,12 @@ public class GameManager {
     private Snackbar errorSnackbar;
     private WordManager wordManager;
     private DiamondManager diamondManager;
+    private LifeCycleManager lifeCycleManager;
 
 
     public GameManager(Activity activity, CustomKeyboard customKeyboard, BoxView[][] boxes,
                        Consumer<Boolean> onFinished, StatisticUtil statisticUtil, WordManager wordManager,
-                       DiamondManager diamondManager) {
+                       DiamondManager diamondManager, LifeCycleManager lifeCycleManager) {
         this.boxes = boxes;
         rowCount = boxes.length;
         columnCount = boxes[0].length;
@@ -52,6 +54,7 @@ public class GameManager {
         correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
         wordManager.setCorrectWord(correctWord);
         this.diamondManager = diamondManager;
+        this.lifeCycleManager = lifeCycleManager;
     }
 
     /**
@@ -83,6 +86,7 @@ public class GameManager {
 
         if (!validate()) return;
 
+        lifeCycleManager.addEnteredWord(convertToString(enteredWord));
         guestCorrectly = validateAndSetColors();
         if (guestCorrectly || row >= rowCount - 2) {
             finishedGame();
@@ -110,9 +114,22 @@ public class GameManager {
 
         customKeyboard.clearKeys();
         while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+        lifeCycleManager.clearEnteredWord();
 
         correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
         wordManager.setCorrectWord(correctWord);
+    }
+
+    public void initializeFirstWords(List<String> enteredWords) {
+        for (String word : enteredWords) {
+            if (word.length() == 0) break;
+
+            for (int i = 0; i < word.length(); i++) {
+                write(String.valueOf(word.charAt(i)));
+            }
+            validateAndSetColors();
+            nextRow();
+        }
     }
 
     public boolean getCorrectGuest() {

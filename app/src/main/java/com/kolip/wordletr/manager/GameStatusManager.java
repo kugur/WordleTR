@@ -10,14 +10,16 @@ public class GameStatusManager {
     private AbstractGameActivity gameActivity;
 
     private GameStates states;
+    private LifeCycleManager lifeCycleManager;
 
-    public GameStatusManager(AbstractGameActivity gameActivity) {
+    public GameStatusManager(AbstractGameActivity gameActivity, LifeCycleManager lifeCycleManager) {
         this.gameActivity = gameActivity;
+        this.lifeCycleManager = lifeCycleManager;
     }
 
-    //TODO(ugur) burasi statuslerin etkisi listener ile mi yapsak ???
     public void setStatus(GameStates status) {
         states = status;
+        lifeCycleManager.setStatus(status);
         switch (status) {
             case READY:
                 applyReady();
@@ -46,7 +48,7 @@ public class GameStatusManager {
 
     private void applyReady() {
         gameActivity.getLastRowView().setVisibility(View.INVISIBLE);
-        gameActivity.getJokerView().setJokerDescription("");
+        gameActivity.setJokerDescription("");
         gameActivity.getJokerView().setVisibleOfJokers(true);
         gameActivity.getJokerView().setVisibilityOfGiveLife(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);

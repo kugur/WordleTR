@@ -22,7 +22,7 @@ public class DictionaryHelper {
     public DictionaryHelper(Activity activity, int wordLength) {
         this.worldLength = wordLength;
         assetManager = activity != null ? activity.getAssets() : null;
-//        trDict = getDictionary();
+        trDict = getDictionary(null);
     }
 
     public HashSet<String> getDictionary(BufferedReader fileBufferedReader) {

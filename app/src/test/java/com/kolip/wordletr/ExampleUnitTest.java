@@ -1,11 +1,12 @@
 package com.kolip.wordletr;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import com.kolip.wordletr.trdict.DictionaryHelper;
 import com.kolip.wordletr.views.BoxView;
+
+import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -51,7 +52,7 @@ public class ExampleUnitTest {
         enteredWord.pop();
 
         result = "";
-        for(String s: enteredWord) {
+        for (String s : enteredWord) {
             result += s;
         }
 
@@ -70,7 +71,7 @@ public class ExampleUnitTest {
         storeShuffleWords(dict);
     }
 
-    private void storeShuffleWords( HashSet<String> dict) throws FileNotFoundException {
+    private void storeShuffleWords(HashSet<String> dict) throws FileNotFoundException {
 
         ArrayList<String> gameWords = new ArrayList<>();
         gameWords.addAll(dict);
@@ -80,22 +81,34 @@ public class ExampleUnitTest {
                 new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream("src/main/assets/6ShuffleWords")));
 
-        gameWords.forEach(word -> {{
-            try {
-                if (word != null) {
-                    bufferedWriter.write(word);
-                    bufferedWriter.newLine();
-                }
+        gameWords.forEach(word -> {
+            {
+                try {
+                    if (word != null) {
+                        bufferedWriter.write(word);
+                        bufferedWriter.newLine();
+                    }
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }});
+        });
 
         try {
             bufferedWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testReduce() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("D");
+        assertEquals("A;B;C;D", list.stream().reduce((l1, l2) -> l1 + ";" + l2).orElse(""));
     }
 }
