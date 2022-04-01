@@ -64,8 +64,8 @@ public class ExampleUnitTest {
 
     @Test
     public void dictTest() throws FileNotFoundException {
-        DictionaryHelper dictionaryHelper = new DictionaryHelper(null, 6);
-        HashSet<String> dict = dictionaryHelper.getDictionary(new BufferedReader(new InputStreamReader(new FileInputStream("/Users/ugurk/Projects/android_workspace/WordleTR/app/src/main/assets/6SelectedWords"))));
+        DictionaryHelper dictionaryHelper = new DictionaryHelper(null, 7);
+        HashSet<String> dict = dictionaryHelper.getDictionary(new BufferedReader(new InputStreamReader(new FileInputStream("/Users/ugurk/Projects/android_workspace/WordleTR/app/src/main/assets/7SelectedWords"))));
         assertNotNull(dict);
 //        assertEquals("Should be same size", 5559, dict.size());
         storeShuffleWords(dict);
@@ -79,7 +79,7 @@ public class ExampleUnitTest {
 
         BufferedWriter bufferedWriter =
                 new BufferedWriter(new OutputStreamWriter(
-                        new FileOutputStream("src/main/assets/6ShuffleWords")));
+                        new FileOutputStream("src/main/assets/temp")));
 
         gameWords.forEach(word -> {
             {
