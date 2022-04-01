@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.kolip.wordletr.R;
 import com.kolip.wordletr.dialog.GameFinishedDialog;
+import com.kolip.wordletr.dialog.StatisticDialog;
 import com.kolip.wordletr.dialog.WatchAdDialog;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.keyboard.Key;
@@ -60,14 +61,22 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         statisticUtil = new StatisticUtil(this, getBoxes()[0].length);
         lifeCycleManager = new LifeCycleManager(this, getBoxes()[0].length);
 
+        DiamondScoreView diamondScoreView = ((DiamondScoreView) findViewById(R.id.diamond_score_view));
+        diamondManager = new DiamondManager(getPreferences(Context.MODE_PRIVATE), diamondScoreView);
+        adManager = new AdManager(getApplicationContext(), findViewById(R.id.adBanner), diamondManager);
+        WatchAdDialog watchAdDialog = new WatchAdDialog(adManager);
+        diamondScoreView.setListener(view -> {
+            watchAdDialog.show(getSupportFragmentManager(), "watchAds");
+        });
+
         jokersFragment = ((JokersFragment) (getSupportFragmentManager().findFragmentById(R.id.jokers_view)));
         statusManager = new GameStatusManager(this, lifeCycleManager);
-        adManager = new AdManager(getApplicationContext(), findViewById(R.id.adBanner));
+
         wordManager = new WordManager();
-        diamondManager = initializeDiamondManager();
         gameManager = new GameManager(this, customKeyboard, getBoxes(), this::onFinished,
                 statisticUtil, wordManager, diamondManager, lifeCycleManager);
-        jokersFragment.setDependencies(wordManager, customKeyboard, diamondManager, adManager, statusManager, this);
+        jokersFragment.setDependencies(wordManager, customKeyboard, diamondManager, adManager, statusManager, this,
+                lifeCycleManager);
 
         finishedDialog = new GameFinishedDialog();
         finishedDialog.setStatistic(statisticUtil.getStatics());
@@ -76,8 +85,24 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         findViewById(R.id.next_game_button_on_game)
                 .setOnClickListener(v -> handleNextGame(gameManager.getCorrectGuest()));
 
-        gameManager.initializeFirstWords(lifeCycleManager.getEnteredWords());
-        statusManager.setStatus(lifeCycleManager.getGameStatus());
+        handleTitleButtons();
+
+        if (lifeCycleManager.getGameStatus() == GameStates.FINISHED) {
+            gameManager.newGame();
+            statusManager.setStatus(GameStates.READY);
+            setJokerDescription("");
+        } else {
+            gameManager.initializeFirstWords(lifeCycleManager.getEnteredWords());
+            statusManager.setStatus(lifeCycleManager.getGameStatus());
+        }
+
+        setJokerDescription(lifeCycleManager.getLetterCountsDescription());
+
+        for (String givenLetter : lifeCycleManager.getGivenLetters()) {
+            jokersFragment.setGivenLetter(givenLetter);
+        }
+
+        getLastRowView().setVisibility(lifeCycleManager.isSecondChangeUsed() ? View.VISIBLE : View.INVISIBLE);
     }
 
     @Override
@@ -108,18 +133,32 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         customKeyboard.setDeleteListener(v -> handleDeleteClick());
     }
 
-    private DiamondManager initializeDiamondManager() {
-        WatchAdDialog watchAdDialog = new WatchAdDialog(adManager);
-        DiamondScoreView diamondScoreView = ((DiamondScoreView) findViewById(R.id.diamond_score_view));
-        diamondScoreView.setListener(view -> {
-            watchAdDialog.show(getSupportFragmentManager(), "watchAds");
-        });
+    private void handleTitleButtons() {
+        findViewById(R.id.help_button).setVisibility(View.GONE);
+        findViewById(R.id.home_button).setVisibility(View.VISIBLE);
 
-        return new DiamondManager(getPreferences(Context.MODE_PRIVATE), diamondScoreView);
+        findViewById(R.id.home_button).setOnClickListener(v -> {
+            finish();
+        });
+        findViewById(R.id.statistic_button_main_menu).setOnClickListener(v -> {
+            StatisticDialog statisticDialog = new StatisticDialog(getBoxes()[0].length);
+            statisticDialog.show(getSupportFragmentManager(), "statistics");
+        });
     }
+
+//    private DiamondManager initializeDiamondManager() {
+//        WatchAdDialog watchAdDialog = new WatchAdDialog(adManager);
+//        DiamondScoreView diamondScoreView = ((DiamondScoreView) findViewById(R.id.diamond_score_view));
+//        diamondScoreView.setListener(view -> {
+//            watchAdDialog.show(getSupportFragmentManager(), "watchAds");
+//        });
+//
+//        return new DiamondManager(getPreferences(Context.MODE_PRIVATE), diamondScoreView);
+//    }
 
     private void handleKeyboardButtonClick(Key keyView) {
         Log.d("GameActivity", "Click event received by gameActivity " + keyView.getText());
+        if (statusManager.getStates() == GameStates.BEFORE_FINISHED) return;
 
         if (keyView.getText().equals("ENTER")) {
             gameManager.enter();
@@ -129,6 +168,8 @@ public abstract class AbstractGameActivity extends FragmentActivity {
     }
 
     private void handleDeleteClick() {
+        if (statusManager.getStates() == GameStates.BEFORE_FINISHED) return;
+
         gameManager.delete();
     }
 
@@ -167,6 +208,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         }
 
         gameManager.newGame();
+        setJokerDescription("");
         statusManager.setStatus(GameStates.READY);
         if (getSupportFragmentManager().findFragmentByTag("finished_Dialog") != null) {
             finishedDialog.dismiss();
@@ -208,6 +250,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
     }
 
     public void setJokerDescription(String description) {
+        lifeCycleManager.letterCountsDescription(description);
         ((TextView) findViewById(R.id.joker_result_description)).setText(description);
     }
 }

@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.4185185185185185" />
         <entry key="app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2895" />
         <entry key="app/src/main/res/drawable/ic_joker_give_life.xml" value="0.2475" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1575" />
@@ -32,16 +33,20 @@
         <entry key="app/src/main/res/drawable/score_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/statistic.xml" value="0.165" />
         <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_five_letter_game.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_four_letter_game.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.42604166666666665" />
-        <entry key="app/src/main/res/layout/activity_six_letter_game.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_seven_letter_game.xml" value="0.3273092369477912" />
+        <entry key="app/src/main/res/layout/activity_six_letter_game.xml" value="0.335" />
         <entry key="app/src/main/res/layout/custom_keyboard.xml" value="0.2375" />
         <entry key="app/src/main/res/layout/dialog_all_statistics.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_game_finished.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_give_letter.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dialog_helper.xml" value="0.15" />
         <entry key="app/src/main/res/layout/dialog_letter_count_joker.xml" value="0.3807291666666667" />
+        <entry key="app/src/main/res/layout/dialog_statistic.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/dialog_statistic_section.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/dialog_watch_ads.xml" value="0.25" />
         <entry key="app/src/main/res/layout/game_finished_dialog.xml" value="0.375" />
@@ -55,7 +60,6 @@
   <component name="ProjectPlainTextFileTypeManager">
     <file url="file://$PROJECT_DIR$/app/src/main/assets/5SelectedWords" />
     <file url="file://$PROJECT_DIR$/app/src/main/assets/6SelectedWords" />
-    <file url="file://$PROJECT_DIR$/app/src/main/assets/6ShuffleWords" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

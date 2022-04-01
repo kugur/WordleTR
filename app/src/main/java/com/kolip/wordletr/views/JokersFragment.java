@@ -18,6 +18,7 @@ import com.kolip.wordletr.manager.AdManager;
 import com.kolip.wordletr.manager.DiamondManager;
 import com.kolip.wordletr.manager.GameStates;
 import com.kolip.wordletr.manager.GameStatusManager;
+import com.kolip.wordletr.manager.LifeCycleManager;
 import com.kolip.wordletr.manager.WordManager;
 
 public class JokersFragment extends Fragment {
@@ -32,6 +33,7 @@ public class JokersFragment extends Fragment {
     DiamondManager diamondManager;
     AbstractGameActivity gameActivity;
     GameStatusManager statusManager;
+    LifeCycleManager lifeCycleManager;
 
     private boolean jokersVisibility = true;
     private boolean giveLifeVisible = false;
@@ -71,8 +73,8 @@ public class JokersFragment extends Fragment {
             }
 
             if (!givenLetter.isEmpty()) {
-                wordManager.setNotCorrectPositionLetter(givenLetter);
-                customKeyboard.setKeyStatus(givenLetter, BoxStatus.WRONG_POSITION);
+                lifeCycleManager.addGivenLetters(givenLetter);
+                setGivenLetter(givenLetter);
                 diamondManager.addDiamondScore(-GIVEN_LETTER_COST);
             }
 
@@ -114,13 +116,15 @@ public class JokersFragment extends Fragment {
     }
 
     public void setDependencies(WordManager wordManager, CustomKeyboard customKeyboard, DiamondManager diamondManager,
-                                AdManager adManager, GameStatusManager statusManager, AbstractGameActivity gameActivity) {
+                                AdManager adManager, GameStatusManager statusManager, AbstractGameActivity gameActivity,
+                                LifeCycleManager lifeCycleManager) {
         this.wordManager = wordManager;
         this.customKeyboard = customKeyboard;
         this.diamondManager = diamondManager;
         this.adManager = adManager;
         this.statusManager = statusManager;
         this.gameActivity = gameActivity;
+        this.lifeCycleManager = lifeCycleManager;
     }
 
     public void setVisibilityOfGiveLife(boolean visible) {
@@ -137,5 +141,10 @@ public class JokersFragment extends Fragment {
             getView().findViewById(R.id.letter_counts_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
             getView().findViewById(R.id.give_letter_joker).setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
         }
+    }
+
+    public void setGivenLetter(String givenLetter) {
+        wordManager.setNotCorrectPositionLetter(givenLetter);
+        customKeyboard.setKeyStatus(givenLetter, BoxStatus.WRONG_POSITION);
     }
 }

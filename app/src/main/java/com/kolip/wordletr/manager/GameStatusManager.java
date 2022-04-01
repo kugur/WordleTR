@@ -24,6 +24,9 @@ public class GameStatusManager {
             case READY:
                 applyReady();
                 break;
+            case PLAYING:
+                applyPlaying();
+                break;
             case SECOND_CHANGE:
                 applySecondChange();
                 break;
@@ -43,12 +46,21 @@ public class GameStatusManager {
 
     private void applyFinished() {
         gameActivity.getJokerView().setVisibleOfJokers(false);
+//        gameActivity.getLastRowView().setVisibility(View.VISIBLE);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.VISIBLE);
     }
 
     private void applyReady() {
+        lifeCycleManager.setSecondChangeUsed(false);
         gameActivity.getLastRowView().setVisibility(View.INVISIBLE);
-        gameActivity.setJokerDescription("");
+//        gameActivity.setJokerDescription("");
+        gameActivity.getJokerView().setVisibleOfJokers(true);
+        gameActivity.getJokerView().setVisibilityOfGiveLife(false);
+        gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);
+    }
+
+    private void applyPlaying() {
+//        gameActivity.getLastRowView().setVisibility(View.INVISIBLE);
         gameActivity.getJokerView().setVisibleOfJokers(true);
         gameActivity.getJokerView().setVisibilityOfGiveLife(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);
@@ -56,6 +68,7 @@ public class GameStatusManager {
 
     private void applySecondChange() {
         gameActivity.getLastRowView().setVisibility(View.VISIBLE);
+        lifeCycleManager.setSecondChangeUsed(true);
         gameActivity.getJokerView().setVisibilityOfGiveLife(false);
         gameActivity.findViewById(R.id.next_game_button_on_game).setVisibility(View.INVISIBLE);
     }

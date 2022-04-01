@@ -3,7 +3,7 @@ package com.kolip.wordletr.store;
 
 public class Achievements {
 
-    final static String BOX_ENABLE_PREFIX = "BoxEnable";
+    final static String BOX_PASS_THRESHOLD = "BoxEnable";
     final static int ENABLE_THRESHOLD = 10;
 
     private boolean sixBoxEnable;
@@ -11,15 +11,6 @@ public class Achievements {
     private boolean sevenBoxEnable;
     private boolean eightBoxEnable;
     private boolean nineBoxEnable;
-    private boolean tenBoxEnable;
-
-    public boolean isTenBoxEnable() {
-        return tenBoxEnable;
-    }
-
-    public void setTenBoxEnable(boolean tenBoxEnable) {
-        this.tenBoxEnable = tenBoxEnable;
-    }
 
     public boolean isSixBoxEnable() {
         return sixBoxEnable;

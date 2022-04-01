@@ -51,7 +51,7 @@ public class FiveLetterGameActivity extends AbstractGameActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_game;
+        return R.layout.activity_five_letter_game;
     }
 
     @Override

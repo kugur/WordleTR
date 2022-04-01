@@ -114,7 +114,10 @@ public class GameManager {
 
         customKeyboard.clearKeys();
         while (!enteredWord.empty()) enteredWord.pop(); // Clear entered word.
+
         lifeCycleManager.clearEnteredWord();
+        lifeCycleManager.letterCountsDescription("");
+        lifeCycleManager.clearGivenLetters();
 
         correctWord = dictionaryHelper.getCurrentWord(statisticUtil.getTotalGame());
         wordManager.setCorrectWord(correctWord);

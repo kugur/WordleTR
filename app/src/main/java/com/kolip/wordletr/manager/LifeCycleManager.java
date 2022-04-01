@@ -12,12 +12,14 @@ public class LifeCycleManager {
     private static final String GIVEN_LETTERS = "givenLetters";
     private static final String LETTER_COUNT_DESCRIPTION = "letterCountsDescription";
     private static final String GAME_STATUS = "gameStatus";
+    private static final String SECOND_CHANGED_USED = "secondChangedUsed";
 
     private ArrayList<String> enteredWords = new ArrayList<>();
     private ArrayList<String> givenLetters = new ArrayList<>();
     private String letterCountsDescription;
     private String gameStatus;
     private int wordLength;
+    private boolean secondChangeUsed;
 
     private SharedPreferences sharedPreferences;
 
@@ -27,6 +29,9 @@ public class LifeCycleManager {
 
         enteredWords.addAll(stringToList(sharedPreferences.getString(getKey(ENTERED_WORDS), "")));
         gameStatus = sharedPreferences.getString(getKey(GAME_STATUS), GameStates.READY.name());
+        letterCountsDescription = sharedPreferences.getString(getKey(LETTER_COUNT_DESCRIPTION), "");
+        givenLetters.addAll(stringToList(sharedPreferences.getString(getKey(GIVEN_LETTERS), "")));
+        secondChangeUsed = sharedPreferences.getBoolean(getKey(SECOND_CHANGED_USED), false);
     }
 
     public void addEnteredWord(String enteredWord) {
@@ -49,6 +54,10 @@ public class LifeCycleManager {
         return givenLetters;
     }
 
+    public void clearGivenLetters() {
+        givenLetters.clear();
+    }
+
     public void setStatus(GameStates status) {
         gameStatus = status.name();
     }
@@ -61,14 +70,27 @@ public class LifeCycleManager {
         this.letterCountsDescription = letterCountsDescription;
     }
 
+    public String getLetterCountsDescription() {
+        return letterCountsDescription;
+    }
+
     public void persist() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getKey(ENTERED_WORDS), listToString(enteredWords));
         editor.putString(getKey(GIVEN_LETTERS), listToString(givenLetters));
         editor.putString(getKey(GAME_STATUS), gameStatus);
         editor.putString(getKey(LETTER_COUNT_DESCRIPTION), letterCountsDescription);
+        editor.putBoolean(getKey(SECOND_CHANGED_USED), secondChangeUsed);
         editor.commit();
 
+    }
+
+    public void setSecondChangeUsed(boolean secondChangeUsed) {
+        this.secondChangeUsed = secondChangeUsed;
+    }
+
+    public boolean isSecondChangeUsed() {
+        return secondChangeUsed;
     }
 
     private String listToString(ArrayList<String> list) {

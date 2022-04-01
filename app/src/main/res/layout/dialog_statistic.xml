@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color_start">
@@ -21,29 +21,9 @@
 
 
         <include
-            android:id="@+id/five_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/six_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/seven_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/four_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/eight_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/nine_letter_section"
+            android:id="@+id/statistic_section"
             layout="@layout/dialog_statistic_section" />
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

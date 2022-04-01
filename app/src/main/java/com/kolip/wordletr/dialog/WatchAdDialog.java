@@ -30,7 +30,8 @@ public class WatchAdDialog extends AppCompatDialogFragment {
         customDialog = layoutInflater.inflate(R.layout.dialog_watch_ads, null);
         builder.setView(customDialog);
 
-        customDialog.findViewById(R.id.play_ads_button).setOnClickListener(v -> adManager.showRewardAd(getActivity()));
+        customDialog.findViewById(R.id.play_ads_button).setOnClickListener(v -> adManager.showRewardAd(getActivity(),
+                () -> this.dismiss()));
         return builder.create();
     }
 }

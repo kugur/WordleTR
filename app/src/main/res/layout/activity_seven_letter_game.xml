@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color_start"
-    tools:context=".games.SixLetterGameActivity">
+    tools:context=".games.SevenLetterGameActivity">
 
 
     <include
@@ -26,14 +26,16 @@
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="42dp"
+                android:layout_width="20dp"
+                android:layout_height="38dp"
                 android:backgroundTint="@color/transperant"
-                android:drawableRight="@drawable/ic_purple_diamond_small"
                 android:padding="0dp"
                 android:paddingRight="0dp"
                 android:stateListAnimator="@null"
@@ -43,10 +45,9 @@
                 android:textStyle="bold" />
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="42dp"
+                android:layout_width="20dp"
+                android:layout_height="38dp"
                 android:backgroundTint="@color/transperant"
-                android:drawableRight="@drawable/ic_purple_diamond_small"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
                 android:stateListAnimator="@null"
@@ -56,10 +57,9 @@
                 android:textStyle="bold" />
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="42dp"
+                android:layout_width="20dp"
+                android:layout_height="38dp"
                 android:backgroundTint="@color/transperant"
-                android:drawableRight="@drawable/ic_purple_diamond_small"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
                 android:stateListAnimator="@null"
@@ -69,10 +69,9 @@
                 android:textStyle="bold" />
 
             <Button
-                android:layout_width="50dp"
-                android:layout_height="42dp"
+                android:layout_width="20dp"
+                android:layout_height="38dp"
                 android:backgroundTint="@color/transperant"
-                android:drawableRight="@drawable/ic_purple_diamond_small"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
                 android:stateListAnimator="@null"
@@ -87,6 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toStartOf="@+id/jokers_view"
             app:layout_constraintStart_toEndOf="@+id/linearLayout3"
             app:layout_constraintTop_toTopOf="parent">
@@ -98,27 +98,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_1_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_1_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
 
             </LinearLayout>
@@ -130,27 +134,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_2_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_2_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
             </LinearLayout>
 
@@ -161,27 +169,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_3_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_3_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
             </LinearLayout>
 
@@ -192,27 +204,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_4_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_4_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
             </LinearLayout>
 
@@ -223,27 +239,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_5_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_5_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
             </LinearLayout>
 
@@ -256,27 +276,31 @@
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_1"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_2"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_3"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_4"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_5"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
 
                 <com.kolip.wordletr.views.BoxView
                     android:id="@+id/row_6_box_6"
-                    style="@style/sixLetterBoxStyle" />
+                    style="@style/sevenLetterBoxStyle" />
+
+                <com.kolip.wordletr.views.BoxView
+                    android:id="@+id/row_6_box_7"
+                    style="@style/sevenLetterBoxStyle" />
 
             </LinearLayout>
 
@@ -355,5 +379,6 @@
         app:layout_constraintVertical_bias="1.0">
 
     </com.google.android.gms.ads.AdView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

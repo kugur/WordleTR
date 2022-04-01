@@ -71,21 +71,20 @@ public class StatisticUtil {
 
     public Achievements getAchievements() {
         Achievements achievements = new Achievements();
-        achievements.setSixBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "6", false));
-        achievements.setSevenBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "7", false));
-        achievements.setFourBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "4", false));
-        achievements.setEightBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "8", false));
-        achievements.setNineBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "9", false));
-        achievements.setTenBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + "10", false));
+        achievements.setSixBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "5", false));
+        achievements.setSevenBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "4", false));
+        achievements.setFourBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "6", false));
+        achievements.setEightBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "7", false));
+        achievements.setNineBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "8", false));
 
         return achievements;
     }
 
     private void setAchievement() {
 
-        if (strikeCount == Achievements.ENABLE_THRESHOLD
-                && sharedPreferences.getBoolean(Achievements.BOX_ENABLE_PREFIX + boxCount, false)) {
-            editor.putBoolean(Achievements.BOX_ENABLE_PREFIX + boxCount, true);
+        if (strikeCount >= Achievements.ENABLE_THRESHOLD
+                && !sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + boxCount, false)) {
+            editor.putBoolean(Achievements.BOX_PASS_THRESHOLD + boxCount, true);
         }
     }
 

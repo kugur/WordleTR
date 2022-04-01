@@ -23,10 +23,13 @@ public class AdManager {
     private AdView mAdView;
     private RewardedAd mRewardedAd;
     private AdRequest adRequest;
+    private DiamondManager diamondManager;
 
-    public AdManager(Context context, AdView banner) {
+    public AdManager(Context context, AdView banner, DiamondManager diamondManager) {
         adRequest = new AdRequest.Builder().build();
         initializeBanner(banner, context);
+
+        this.diamondManager = diamondManager;
         initializeReward(context);
     }
 
@@ -41,7 +44,7 @@ public class AdManager {
         mAdView.loadAd(adRequest);
     }
 
-    private void initializeReward(Context context) {
+    public void initializeReward(Context context) {
 
         RewardedAd.load(context, REWARD_UNIT_ID,
                 adRequest, new RewardedAdLoadCallback() {
@@ -60,7 +63,7 @@ public class AdManager {
                 });
     }
 
-    public void showRewardAd(Activity activity) {
+    public void showRewardAd(Activity activity, Runnable onAdFinished) {
         if (mRewardedAd != null) {
             mRewardedAd.show(activity, new OnUserEarnedRewardListener() {
                 @Override
@@ -68,7 +71,9 @@ public class AdManager {
                     // Handle the reward.
                     Log.d("ad-reward", "The user earned the reward.");
                     int rewardAmount = rewardItem.getAmount();
-                    String rewardType = rewardItem.getType();
+                    diamondManager.addDiamondScore(rewardAmount);
+                    onAdFinished.run();
+                    initializeReward(activity);
                 }
             });
         } else {
