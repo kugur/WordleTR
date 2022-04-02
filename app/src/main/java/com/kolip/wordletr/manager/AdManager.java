@@ -18,7 +18,7 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 public class AdManager {
-    private final String REWARD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917";
+    private final String REWARD_UNIT_ID = "ca-app-pub-8084690313459333/1545286851";
 
     private AdView mAdView;
     private RewardedAd mRewardedAd;

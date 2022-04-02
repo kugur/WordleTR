@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wordle TR</string>
+    <string name="app_name">KelimeLER</string>
     <string name="statistic">İSTATİSTİKLER</string>
     <string name="statistic_previous">İSTATİSTİKLER (Bu oyun hariç)</string>
     <string name="helper_description1">Her tahmin kutu sayısı kadar olmalıdır. Göndermek için enter\'a basın.</string>
