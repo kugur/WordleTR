@@ -71,11 +71,11 @@ public class StatisticUtil {
 
     public Achievements getAchievements() {
         Achievements achievements = new Achievements();
-        achievements.setSixBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "5", false));
-        achievements.setSevenBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "4", false));
-        achievements.setFourBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "6", false));
-        achievements.setEightBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "7", false));
-        achievements.setNineBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "8", false));
+        achievements.setSixBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "5", true));
+        achievements.setSevenBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "4", true));
+        achievements.setFourBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "6", true));
+        achievements.setEightBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "7", true));
+        achievements.setNineBoxEnable(sharedPreferences.getBoolean(Achievements.BOX_PASS_THRESHOLD + "8", true));
 
         return achievements;
     }

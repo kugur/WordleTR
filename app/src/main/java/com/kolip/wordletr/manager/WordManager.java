@@ -1,10 +1,9 @@
 package com.kolip.wordletr.manager;
 
-import android.util.ArraySet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -12,10 +11,13 @@ import java.util.stream.Collectors;
 
 public class WordManager {
     private String correctWord = "";
-    private Set<String> correctWordSet = new ArraySet<>();
+    private Set<String> correctWordSet = new HashSet<>();
     private HashMap<String, Integer> letterCounts = new HashMap<>();
-    private ArraySet<String> notCorrectPositionLetters = new ArraySet<>();
-    private ArraySet<String> correctPositionLetters = new ArraySet<>();
+    private Set<String> notCorrectPositionLetters = new HashSet<>();
+    private Set<String> correctPositionLetters = new HashSet<>();
+
+    private ArrayList<String> rowNotCorrectPositionLetters = new ArrayList<>();
+    private ArrayList<String> rowCorrectPositionLetters = new ArrayList<>();
 
     public void setCorrectWord(String correctWord) {
         this.correctWord = correctWord;
@@ -28,12 +30,16 @@ public class WordManager {
     }
 
     public void setNotCorrectPositionLetter(String notCorrectPositionLetter) {
+        rowNotCorrectPositionLetters.add(notCorrectPositionLetter);
+
         if (correctPositionLetters.contains(notCorrectPositionLetter)) return;
 
         notCorrectPositionLetters.add(notCorrectPositionLetter);
     }
 
     public void setCorrectPositionLetters(String correctPositionLetter) {
+        rowCorrectPositionLetters.add(correctPositionLetter);
+
         notCorrectPositionLetters.remove(correctPositionLetter);
 
         correctPositionLetters.add(correctPositionLetter);
@@ -80,5 +86,26 @@ public class WordManager {
 
     public String getCorrectWord() {
         return correctWord;
+    }
+
+    public int getLetterCount(String letter) {
+        return letterCounts.get(letter);
+    }
+
+    public long getCorrectPositionLetterCount(String letter) {
+        return rowCorrectPositionLetters.stream()
+                .filter(correctLetter -> correctLetter.equals(letter))
+                .count();
+    }
+
+    public long getNotCorrectPositionLetterCount(String letter) {
+        return rowNotCorrectPositionLetters.stream()
+                .filter(notCorrectPositionLetter -> notCorrectPositionLetter.equals(letter))
+                .count();
+    }
+
+    public void clearRowLettersStore() {
+        rowCorrectPositionLetters.clear();
+        rowNotCorrectPositionLetters.clear();
     }
 }

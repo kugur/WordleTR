@@ -177,6 +177,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         //Set status
         if (guessSuccessfully || statusManager.getStates() == GameStates.SECOND_CHANGE) {
             statusManager.setStatus(GameStates.FINISHED);
+            adManager.showFullScreenAd(this);
         } else {
             statusManager.setStatus(GameStates.BEFORE_FINISHED);
         }
@@ -207,6 +208,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
             saveStatistics(guessSuccessfully);
         }
 
+        adManager.initializeFullScreenAd(this);
         gameManager.newGame();
         setJokerDescription("");
         statusManager.setStatus(GameStates.READY);
@@ -215,7 +217,7 @@ public abstract class AbstractGameActivity extends FragmentActivity {
         }
     }
 
-    private void handleGiveLife() {
+    public void handleGiveLife() {
         Log.d("GameActivity", "Give life on finished game dialog has been clicked.");
 
         if (diamondManager.getDiamondScore() < JokersFragment.GIVE_LIFE_COST) {

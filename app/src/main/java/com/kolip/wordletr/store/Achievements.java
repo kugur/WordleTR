@@ -4,7 +4,7 @@ package com.kolip.wordletr.store;
 public class Achievements {
 
     final static String BOX_PASS_THRESHOLD = "BoxEnable";
-    final static int ENABLE_THRESHOLD = 10;
+    final static int ENABLE_THRESHOLD = 0;
 
     private boolean sixBoxEnable;
     private boolean fourBoxEnable;

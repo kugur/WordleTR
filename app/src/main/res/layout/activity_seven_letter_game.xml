@@ -20,6 +20,8 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/custom_keyboard"
         app:layout_constraintTop_toBottomOf="@id/main_game_title">
 
         <LinearLayout
@@ -85,8 +87,8 @@
             android:id="@+id/boxes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="10dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toStartOf="@+id/jokers_view"
             app:layout_constraintStart_toEndOf="@+id/linearLayout3"
             app:layout_constraintTop_toTopOf="parent">
@@ -333,17 +335,20 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/adBanner"
         app:layout_constraintEnd_toStartOf="@+id/diamond_score_view"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_joker_area" />
+        app:layout_constraintTop_toBottomOf="@+id/game_joker_area"
+        app:layout_constraintVertical_bias="0.89" />
 
     <com.kolip.wordletr.views.DiamondScoreView
         android:id="@+id/diamond_score_view"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_joker_area" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joker_result_description"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <View
         android:id="@+id/dialog_error"
@@ -373,10 +378,7 @@
         app:adUnitId="ca-app-pub-8084690313459333/5414355467"
         app:layout_constraintBottom_toTopOf="@+id/custom_keyboard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joker_result_description"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
     </com.google.android.gms.ads.AdView>
 

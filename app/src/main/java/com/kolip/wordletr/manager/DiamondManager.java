@@ -29,6 +29,6 @@ public class DiamondManager {
     }
 
     public int getDiamondScore() {
-        return sharedPreferences.getInt(DIAMOND_KEY, 0);
+        return sharedPreferences.getInt(DIAMOND_KEY, 20);
     }
 }

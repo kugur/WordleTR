@@ -16,7 +16,6 @@ import com.kolip.wordletr.games.AbstractGameActivity;
 import com.kolip.wordletr.keyboard.CustomKeyboard;
 import com.kolip.wordletr.manager.AdManager;
 import com.kolip.wordletr.manager.DiamondManager;
-import com.kolip.wordletr.manager.GameStates;
 import com.kolip.wordletr.manager.GameStatusManager;
 import com.kolip.wordletr.manager.LifeCycleManager;
 import com.kolip.wordletr.manager.WordManager;
@@ -99,9 +98,7 @@ public class JokersFragment extends Fragment {
     private void handleGiveLifeEvents() {
         getView().findViewById(R.id.give_life_joker).setOnClickListener(v -> {
 
-            if (!validatedEnoughDiamond(GIVE_LIFE_COST)) return;
-
-            statusManager.setStatus(GameStates.SECOND_CHANGE);
+            gameActivity.handleGiveLife();
         });
     }
 

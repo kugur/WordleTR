@@ -9,15 +9,24 @@
         <entry key="../../../Library/Android/sdk/platforms/android-31/data/res/drawable/btn_default_mtrl_shape.xml" value="0.179" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_border.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/box_drawable_style.xml" value="0.346875" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2425" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_joker_give_life.xml" value="0.245" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_purple_diamond.xml" value="0.245" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/ic_purple_diamond_small.xml" value="0.245" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/drawable/statistic.xml" value="0.273" />
-        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_five_letter_game.xml" value="0.2674772036474164" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_eight_letter.xml" value="0.2674772036474164" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_five_letter_game.xml" value="0.25" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_four_letter_game.xml" value="0.2674772036474164" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_game.xml" value="0.3888888888888889" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_main.xml" value="0.38722826086956524" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_seven_letter_game.xml" value="0.2674772036474164" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/activity_six_letter_game.xml" value="0.2674772036474164" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/custom_keyboard.xml" value="0.4036458333333333" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/dialog_all_statistics.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/dialog_game_finished.xml" value="0.2608695652173913" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/dialog_helper.xml" value="0.17857142857142858" />
+        <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/dialog_statistic_section.xml" value="0.17857142857142858" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/main_title.xml" value="0.2674772036474164" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/sample_box.xml" value="0.3307291666666667" />
         <entry key="..\:/Projects/AndroidStudioProjects/WordleTR/app/src/main/res/layout/view_diamond_score.xml" value="0.31145833333333334" />

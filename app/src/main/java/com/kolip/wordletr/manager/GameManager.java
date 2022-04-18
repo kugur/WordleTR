@@ -157,14 +157,32 @@ public class GameManager {
         int enteredWordIndex = 0;
         boolean wordMatched = true;
         String charAtIndexOfCorrectWord;
+        wordManager.clearRowLettersStore();
 
+        //Find and set Correct Position Letters
         for (String enteredChar : enteredWord) {
             charAtIndexOfCorrectWord = String.valueOf(correctWord.charAt(enteredWordIndex));
 
             if (enteredChar.equals(charAtIndexOfCorrectWord)) {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.CORRECT_POSITION);
                 wordManager.setCorrectPositionLetters(enteredChar);
-            } else if (correctWord.contains(enteredChar)) {
+            }
+            enteredWordIndex++;
+        }
+
+        //Set not Correct Position Letters and not correct letters.
+        enteredWordIndex = 0;
+        for (String enteredChar : enteredWord) {
+
+            charAtIndexOfCorrectWord = String.valueOf(correctWord.charAt(enteredWordIndex));
+
+            if (enteredChar.equals(charAtIndexOfCorrectWord)) {
+                enteredWordIndex++;
+                continue;
+            }
+
+            if (correctWord.contains(enteredChar) &&
+                    wordManager.getLetterCount(enteredChar) > wordManager.getCorrectPositionLetterCount(enteredChar) + wordManager.getNotCorrectPositionLetterCount(enteredChar)) {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.WRONG_POSITION);
                 wordMatched = false;
                 wordManager.setNotCorrectPositionLetter(enteredChar);
@@ -172,8 +190,10 @@ public class GameManager {
                 setColors(enteredChar, enteredWordIndex, BoxStatus.WRONG_CHAR);
                 wordMatched = false;
             }
+
             enteredWordIndex++;
         }
+
 
         return wordMatched;
     }
