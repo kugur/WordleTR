@@ -40,8 +40,8 @@ public class MainMenu extends AppCompatActivity {
         handleFourLetterGameButtonClick();
         handleSixLetterGameButtonClick();
         handleSevenLetterGameButtonClick();
-        handleEightLetterGameButtonClick();
-        handleNineLetterGameButtonClick();
+//        handleEightLetterGameButtonClick();
+//        handleNineLetterGameButtonClick();
 
         handleHelpButtonClick();
         findViewById(R.id.statistic_button_main_menu).setOnClickListener(v -> showStatics());
@@ -115,27 +115,27 @@ public class MainMenu extends AppCompatActivity {
         });
     }
 
-    private void handleEightLetterGameButtonClick() {
-        findViewById(R.id.eight_letter_button).setOnClickListener(view -> {
-            Log.d("MainMenu", "Eight letters button has been clicked on main screen.");
-            if (!achievements.isEightBoxEnable()) {
-                showButtonAlert(8);
-                return;
-            }
-
-        });
-    }
-
-    private void handleNineLetterGameButtonClick() {
-        findViewById(R.id.nine_letter_button).setOnClickListener(view -> {
-            Log.d("MainMenu", "Nine letters button has been clicked on main screen.");
-            if (!achievements.isNineBoxEnable()) {
-                showButtonAlert(9);
-                return;
-            }
-
-        });
-    }
+//    private void handleEightLetterGameButtonClick() {
+//        findViewById(R.id.eight_letter_button).setOnClickListener(view -> {
+//            Log.d("MainMenu", "Eight letters button has been clicked on main screen.");
+//            if (!achievements.isEightBoxEnable()) {
+//                showButtonAlert(8);
+//                return;
+//            }
+//
+//        });
+//    }
+//
+//    private void handleNineLetterGameButtonClick() {
+//        findViewById(R.id.nine_letter_button).setOnClickListener(view -> {
+//            Log.d("MainMenu", "Nine letters button has been clicked on main screen.");
+//            if (!achievements.isNineBoxEnable()) {
+//                showButtonAlert(9);
+//                return;
+//            }
+//
+//        });
+//    }
 
     private void handleHelpButtonClick() {
         findViewById(R.id.help_button).setOnClickListener(view -> showHelper());
@@ -158,19 +158,19 @@ public class MainMenu extends AppCompatActivity {
         String message = "";
         switch (letterCount) {
             case 4:
-                message = "6 Harf oyununu pes pese 10 kere kazanmanız gerekmektedir!";
+                message = getResources().getString(R.string.menu_6_letters);
                 break;
             case 6:
-                message = "5 Harf oyununu pes pese 10 kere kazanmanız gerekmektedir!";
+                message = getResources().getString(R.string.menu_5_letters);
                 break;
             case 7:
-                message = "4 Harf oyununu pes pese 10 kere kazanmanız gerekmektedir!";
+                message = getResources().getString(R.string.menu_4_letters);
                 break;
             case 8:
-                message = "7 Harf oyununu pes pese 10 kere kazanmanız gerekmektedir!";
+                message = getResources().getString(R.string.menu_7_letters);
                 break;
             case 9:
-                message = "8 Harf oyununu pes pese 10 kere kazanmanız gerekmektedir!";
+                message = getResources().getString(R.string.menu_8_letters);
                 break;
         }
 
@@ -191,13 +191,13 @@ public class MainMenu extends AppCompatActivity {
         if (achievements.isSevenBoxEnable()) {
             ((Button) findViewById(R.id.seven_letter_button)).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
-
-        if (achievements.isEightBoxEnable()) {
-            ((Button) findViewById(R.id.eight_letter_button)).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        }
-
-        if (achievements.isNineBoxEnable()) {
-            ((Button) findViewById(R.id.nine_letter_button)).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        }
+//
+//        if (achievements.isEightBoxEnable()) {
+//            ((Button) findViewById(R.id.eight_letter_button)).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//        }
+//
+//        if (achievements.isNineBoxEnable()) {
+//            ((Button) findViewById(R.id.nine_letter_button)).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//        }
     }
 }

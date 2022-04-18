@@ -10,9 +10,9 @@
     <string name="helper_description6"><b>R</b> harfi kelimede yok.</string>
     <string name="statistic_total_game">Toplam Oyun</string>
     <string name="statistic_ratio_win">% Kazanma</string>
-    <string name="statistic_strike">Pes pese Kazanma</string>
-    <string name="statistic_max_strike">Maks Pes pese Kazanma</string>
-    <string name="statistic_five_letter_title">Bes Harfliler</string>
+    <string name="statistic_strike">Peş peşe Kazanma</string>
+    <string name="statistic_max_strike">Maks Peş peşe Kazanma</string>
+    <string name="statistic_five_letter_title">Beş Harfliler</string>
     <string name="statistic_six_letter_title">Altı Harfliler</string>
     <string name="statistic_seven_letter_title">Yedi Harfliler</string>
     <string name="statistic_four_letter_title">Dört Harfliler</string>
@@ -24,5 +24,10 @@
     <string name="watch_ads_earn_dimaond_title">REKLAM İZLE ve PUAN KAZAN</string>
     <string name="new_game">YENİ OYUN</string>
     <string name="finished_dialog_correct_word">DOĞRU KELİME: &lt;big>&lt;b&gt;%1$s&lt;/b&gt;&lt;/big></string>
+    <string name="menu_6_letters">Altı harf oyununu peş peşe 10 kere kazanmanız gerekmektedir!</string>
+    <string name="menu_7_letters">Yedi harf oyununu peş peşe 10 kere kazanmanız gerekmektedir!</string>
+    <string name="menu_8_letters">Sekiz harf oyununu peş peşe 10 kere kazanmanız gerekmektedir!</string>
+    <string name="menu_4_letters">Dört harf oyununu peş peşe 10 kere kazanmanız gerekmektedir!</string>
+    <string name="menu_5_letters">Beş harf oyununu peş peşe 10 kere kazanmanız gerekmektedir!</string>
 
 </resources>

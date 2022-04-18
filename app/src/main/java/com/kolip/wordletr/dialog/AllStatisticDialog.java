@@ -46,14 +46,14 @@ public class AllStatisticDialog extends AppCompatDialogFragment {
         setStatisticSection(customDialog.findViewById(R.id.four_letter_section),
                 getResources().getString(R.string.statistic_four_letter_title),
                 new StatisticUtil(getActivity(), 4).getStatics());
-
-        setStatisticSection(customDialog.findViewById(R.id.eight_letter_section),
-                getResources().getString(R.string.statistic_eight_letter_title),
-                new StatisticUtil(getActivity(), 8).getStatics());
-
-        setStatisticSection(customDialog.findViewById(R.id.nine_letter_section),
-                getResources().getString(R.string.statistic_nine_letter_title),
-                new StatisticUtil(getActivity(), 9).getStatics());
+//
+//        setStatisticSection(customDialog.findViewById(R.id.eight_letter_section),
+//                getResources().getString(R.string.statistic_eight_letter_title),
+//                new StatisticUtil(getActivity(), 8).getStatics());
+//
+//        setStatisticSection(customDialog.findViewById(R.id.nine_letter_section),
+//                getResources().getString(R.string.statistic_nine_letter_title),
+//                new StatisticUtil(getActivity(), 9).getStatics());
     }
 
     private void setStatisticSection(View statisticSection, String title, Statitics statitics) {

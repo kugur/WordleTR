@@ -36,14 +36,6 @@
             android:id="@+id/four_letter_section"
             layout="@layout/dialog_statistic_section" />
 
-        <include
-            android:id="@+id/eight_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
-        <include
-            android:id="@+id/nine_letter_section"
-            layout="@layout/dialog_statistic_section" />
-
     </LinearLayout>
 
 </ScrollView>
